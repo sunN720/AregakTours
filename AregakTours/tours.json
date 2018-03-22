@@ -1,0 +1,20 @@
+[
+ {
+ "id": 1,
+ "name": "Yerevan - Goris",
+ "description": "Some fake Description",
+ "price": "20000amd"
+ }, 
+ {
+ "id": 2,
+ "name": "Yerevan - Kapan",
+ "description": "Some fake fake Description",
+ "price": "20000amd"
+ },
+ {
+ "id": 3,
+ "name": "Yerevan - Sisian",
+ "description": "Some fake fake fake Description",
+ "price": "20000amd"
+ }
+ ]
