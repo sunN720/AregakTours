@@ -8,50 +8,51 @@
 
 import UIKit
 
-class TourTableViewCell {
+class TourTableViewCell: UITableViewCell {
+  
+  @IBOutlet weak var carButton: UIButton!
+  @IBOutlet weak var guideButton: UIButton!
+  @IBOutlet weak var mealButton: UIButton!
+  @IBOutlet weak var dateButton: UIButton!
+  
+  @IBOutlet weak var titleLable: UILabel!
+  @IBOutlet weak var descriptionLabel: UILabel!
+  
+  // MARK: -  public methods
+  func setupCell(viewModel: TourViewModel) {
+    carButton.button(imageName: "", text: viewModel.price.car)
+    guideButton.button(imageName: "", text: viewModel.price.guide)
+    mealButton.button(imageName: "", text: viewModel.price.meal)
     
-    @IBOutlet weak var carButton: UIButton!
-    @IBOutlet weak var guideButton: UIButton!
-    @IBOutlet weak var mealButton: UIButton!
-    @IBOutlet weak var DateButton: UIButton!
-    
-    @IBOutlet weak var titleLable: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-
-    // MARK: -  public methods
-    func setupCell() {
-        carButton.button(imageName: "", text: "10000amd")
-        guideButton.button(imageName: "", text: "10000amd")
-        mealButton.button(imageName: "", text: "10000amd")
-        mealButton.titleLabel?.text = "Date"
-        
-        titleLable.textSepearatedByDot("text blah blah")
-    }
+    titleLable.text = viewModel.description
+  }
 }
 
 // MARK: -  private methods
 fileprivate extension TourTableViewCell {
-    func openDatePicker() {
-        
-    }
+  func openDatePicker() {
+    /**
+     dateButton.text = from picker
+     */
+  }
 }
 
 // MARK: -  IBActions
 fileprivate extension TourTableViewCell {
+  
+  @IBAction func carTapped(_ sender: Any) {
     
-    @IBAction func carTapped(_ sender: Any) {
-        
-    }
+  }
+  
+  @IBAction func guideTapped(_ sender: Any) {
     
-    @IBAction func guideTapped(_ sender: Any) {
-        
-    }
+  }
+  
+  @IBAction func mealTapped(_ sender: Any) {
     
-    @IBAction func mealTapped(_ sender: Any) {
-        
-    }
-    
-    @IBAction func dateTapped(_ sender: Any) {
-        openDatePicker()
-    }
+  }
+  
+  @IBAction func dateTapped(_ sender: Any) {
+    openDatePicker()
+  }
 }

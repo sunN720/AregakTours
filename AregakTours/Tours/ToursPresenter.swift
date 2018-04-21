@@ -9,61 +9,48 @@
 
 import Foundation
 
-struct TourViewModel {
-    var id: Int
-    var name: String
-    var description: String?
-    var price: String
-}
-
 protocol ToursView: class {
-    func startLoading()
-    func finishLoading()
-    func setTours(_ tours: [TourViewModel])
-    func updateViewFor(emptyState: Bool)
+  func startLoading()
+  func finishLoading()
+  func setTours(_ tours: [TourViewModel])
+  func updateViewFor(emptyState: Bool)
 }
 
 class ToursPresenter {
-    fileprivate let toursService: ToursInteractorAdaptor!
-    weak fileprivate var toursView : ToursView?
+  fileprivate let toursService: ToursInteractorAdaptor!
+  weak var toursView : ToursView?
+  
+  init(toursService: ToursInteractorAdaptor){
+    self.toursService = toursService
+  }
+  
+  func notifyViewDidLoad() {
+    fetchTours()
+  }
+  
+  
+  func fetchTours() {
+    self.toursView?.startLoading()
     
-    init(toursService: ToursInteractorAdaptor){
-        self.toursService = toursService
+    toursService.fetchLocalTours{ [weak self] (tours, error) in
+      
+      self?.toursView?.finishLoading()
+      
+      if let error = error {
+        self?.toursView?.updateViewFor(emptyState: true)
+      }
+      
+      guard let tours = tours, tours.count > 0 else {
+        self?.toursView?.updateViewFor(emptyState: true)
+        return
+      }
+      let price = TourViewModel.Price.init(car: "15000", guide: "10000", meal: "5000")
+      let tourViewModel1 = TourViewModel.init(id: 12, name: "YEREVAN - GORIS", price: price)
+      let tourViewModel2 = TourViewModel.init(id: 12, name: "YEREVAN - MEGHRI", price: price)
+      let tourViewModel3 = TourViewModel.init(id: 12, name: "YEREVAN - SISIAN", price: price)
+      self?.toursView?.setTours([tourViewModel1, tourViewModel2, tourViewModel3])
+      self?.toursView?.updateViewFor(emptyState: false)
     }
-    
-    func attachView(_ view: ToursView){
-         toursView = view
-    }
-    
-    func detachView() {
-        toursView = nil
-    }
-    
-    func fetchTours() {
-        self.toursView?.startLoading()
-        
-        toursService.fetchLocalTours{ [weak self] (tours, error) in
-            
-            self?.toursView?.finishLoading()
-            
-            if let error = error {
-                self?.toursView?.updateViewFor(emptyState: true)
-            }
-            
-            guard let tours = tours, tours.count > 0 else {
-                self?.toursView?.updateViewFor(emptyState: true)
-                return
-            }
-            let mappedTours = tours.flatMap( {
-                return TourViewModel(
-                    id: ($0.id),
-                    name: "\($0.name)",
-                    description: "\($0.description)",
-                    price: "\($0.price)")
-            })
-            self?.toursView?.setTours(mappedTours)
-            self?.toursView?.updateViewFor(emptyState: false)
-        }
-    }
+  }
 }
 

@@ -10,27 +10,18 @@ import UIKit
 
 
 extension UIButton {
+  
+  func button(imageName: String, text: String) {
     
-    func button(imageName: String, text: String) {
-        
-        guard let image = UIImage(named: imageName) else { return }
-        let imageSize = image.size
-        
-        let button = self
-        button.imageView?.image = image
-        button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, self.frame.size.height - imageSize.height, 0)
-        button.titleLabel?.text = text
-        button.titleEdgeInsets = UIEdgeInsetsMake(imageSize.height + 5, 0, 0, 0)
-    }
-}
-
-extension UILabel {
+    guard let image = UIImage(named: imageName) else { return }
+    let imageSize = image.size
     
-    func textSepearatedByDot(_ text: String) {
-        let label = self
-        /// goes separation by dot
-        label.text = text
-    }
+    let button = self
+    button.imageView?.image = image
+    button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, self.frame.size.height - imageSize.height, 0)
+    button.titleLabel?.text = text
+    button.titleEdgeInsets = UIEdgeInsetsMake(imageSize.height + 5, 0, 0, 0)
+  }
 }
 
 
