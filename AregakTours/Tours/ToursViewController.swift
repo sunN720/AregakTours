@@ -14,7 +14,6 @@ class ToursViewController: UIViewController {
     
     activityIndicator?.hidesWhenStopped = true
     tableView?.register(UINib(nibName: "TourTableViewCell", bundle: nil), forCellReuseIdentifier: "TourTableViewCell")
-    tableView?.estimatedRowHeight = UITableViewAutomaticDimension
     toursPresenter.toursView = self
     toursPresenter.notifyViewDidLoad()
   }
@@ -37,6 +36,10 @@ extension ToursViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return UITableViewAutomaticDimension
+  }
+  
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 170.0
   }
 }
 

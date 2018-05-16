@@ -32,7 +32,7 @@ class ToursPresenter {
   func fetchTours() {
     self.toursView?.startLoading()
     
-    toursService.fetchLocalTours{ [weak self] (tours, error) in
+    toursService.fetchLocalTours { [weak self] (tours, error) in
       
       self?.toursView?.finishLoading()
       
@@ -44,11 +44,13 @@ class ToursPresenter {
         self?.toursView?.updateViewFor(emptyState: true)
         return
       }
-      let price = TourViewModel.Price.init(car: "15000", guide: "10000", meal: "5000")
-      let tourViewModel1 = TourViewModel.init(id: 12, name: "YEREVAN - GORIS", price: price)
-      let tourViewModel2 = TourViewModel.init(id: 12, name: "YEREVAN - MEGHRI", price: price)
-      let tourViewModel3 = TourViewModel.init(id: 12, name: "YEREVAN - SISIAN", price: price)
-      self?.toursView?.setTours([tourViewModel1, tourViewModel2, tourViewModel3])
+      
+      var toursViewModel = [TourViewModel]()
+      for tour in tours {
+        let tourViewModel = TourViewModel.init(tour: tour)
+        toursViewModel.append(tourViewModel)
+      }
+      self?.toursView?.setTours(toursViewModel)
       self?.toursView?.updateViewFor(emptyState: false)
     }
   }

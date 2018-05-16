@@ -2,19 +2,25 @@
  {
  "id": 1,
  "name": "Yerevan - Goris",
- "description": "Some fake Description",
- "price": "20000amd"
+ "description": "Short Description",
+ "transport": "20000amd",
+ "guide": "10000amd",
+ "meal": "5000amd"
  }, 
  {
  "id": 2,
  "name": "Yerevan - Kapan",
- "description": "Some fake fake Description",
- "price": "20000amd"
+ "description": "We will pick you up in the morning and we kick off the  Yerevan city tour . We will start with a visit to the Matenadaran, a repository of ancient Armenian manuscripts.",
+ "transport": "55000amd",
+ "guide": "10000amd",
+ "meal": "5000amd"
  },
  {
  "id": 3,
  "name": "Yerevan - Sisian",
- "description": "Some fake fake fake Description",
- "price": "20000amd"
+ "description": "We will welcome you at  Zvartnots airport  and take you to your guesthouse.",
+ "transport": "35000amd",
+ "guide": "10000amd",
+ "meal": "5000amd"
  }
  ]

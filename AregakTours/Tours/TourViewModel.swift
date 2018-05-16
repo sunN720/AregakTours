@@ -12,27 +12,17 @@ import Foundation
 struct TourViewModel {
   var id: Int
   var name: String
-  var description: String? {
-    set {}
-    get {
-      return "Dummy description"
-    }
+  var transport: String
+  var guide: String
+  var meal: String
+  var description: String?
+  
+  init(tour: Tour) {
+    self.id = tour.id
+    self.name = tour.name.uppercased()
+    self.transport = tour.transport
+    self.guide = tour.guide
+    self.meal = tour.meal
+    self.description = tour.description
   }
-  var price: Price
-  
-  
-  struct Price {
-    var car: String
-    var guide: String
-    var meal: String
-  }
-  
-  func textSepearatedByDot(_ text: String) -> NSAttributedString {
-    /**
-     text separate by dot
-     */
-    return NSAttributedString(string: text)
-  }
-  
-  
 }

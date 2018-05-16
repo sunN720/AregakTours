@@ -17,10 +17,12 @@ extension UIButton {
     let imageSize = image.size
     
     let button = self
-    button.imageView?.image = image
-    button.imageEdgeInsets = UIEdgeInsetsMake(0, 0, self.frame.size.height - imageSize.height, 0)
-    button.titleLabel?.text = text
-    button.titleEdgeInsets = UIEdgeInsetsMake(imageSize.height + 5, 0, 0, 0)
+    button.setImage(image, for: .normal)
+    button.imageView?.contentMode = .scaleAspectFit
+    button.imageEdgeInsets = UIEdgeInsetsMake(5,  25, 20, 0)
+    button.setTitle(text, for: .normal)
+    button.titleLabel?.textAlignment = .center
+    button.titleEdgeInsets = UIEdgeInsetsMake(25, -20, 5, 0)
   }
 }
 

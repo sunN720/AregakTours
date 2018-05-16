@@ -20,20 +20,19 @@ class TourTableViewCell: UITableViewCell {
   
   // MARK: -  public methods
   func setupCell(viewModel: TourViewModel) {
-    carButton.button(imageName: "", text: viewModel.price.car)
-    guideButton.button(imageName: "", text: viewModel.price.guide)
-    mealButton.button(imageName: "", text: viewModel.price.meal)
-    
-    titleLable.text = viewModel.description
+    carButton.button(imageName: "transport", text: viewModel.transport)
+    guideButton.button(imageName: "tour_guide", text: viewModel.guide)
+    mealButton.button(imageName: "meal", text: viewModel.meal)
+    dateButton.button(imageName: "calendar", text: "Date")
+    titleLable.text = viewModel.name
+    descriptionLabel.text = viewModel.description
   }
 }
 
 // MARK: -  private methods
 fileprivate extension TourTableViewCell {
   func openDatePicker() {
-    /**
-     dateButton.text = from picker
-     */
+    
   }
 }
 

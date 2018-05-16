@@ -9,7 +9,7 @@ protocol NetworkRequest {
 extension NetworkRequest {
     
     var headers: [String: String] { return ["": ""] }
-    var apiUri: String { return "https://api.coindesk.com/v1/bpi" }
+    var apiUri: String { return "" }
     var apiLocalUrl: String {
         let filePath = Bundle.main.path(forResource: "tours", ofType: "json")
         if let filePath = filePath {
