@@ -9,115 +9,63 @@
     </dependencies>
     <customFonts key="customFonts">
         <array key="Menlo.ttc">
-            <string>Menlo-Bold</string>
             <string>Menlo-Regular</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" shouldIndentWhileEditing="NO" reuseIdentifier="TourTableViewCell" rowHeight="170" id="AYC-gf-USD" customClass="TourTableViewCell" customModule="AregakTours" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="93" id="3XB-D5-PbQ" customClass="TourTableViewCell" customModule="AregakTours" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AYC-gf-USD" id="BFb-G0-Fdb">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="169.5"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3XB-D5-PbQ" id="cWg-QW-esn">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="92.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="GnM-jE-bXD" userLabel="Main Stack View">
-                        <rect key="frame" x="16" y="16" width="343" height="137.5"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZx-Zb-Pbn" userLabel="Container View">
+                        <rect key="frame" x="16" y="16" width="343" height="60.5"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="u7f-6U-GYy" userLabel="Text Stack View">
-                                <rect key="frame" x="0.0" y="0.0" width="343" height="81.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yerevan - Goris" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0s-1Y-70K">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
-                                        <color key="backgroundColor" red="1" green="0.3641251244" blue="0.30440043659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Devil bridge, tatev monastery, Zorac qarer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6u-So-bz3">
-                                        <rect key="frame" x="0.0" y="43.5" width="343" height="38"/>
-                                        <color key="backgroundColor" red="1" green="0.3641251244" blue="0.30440043659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Wke-7a-A9c" userLabel="Buttons Stack View">
-                                <rect key="frame" x="0.0" y="97.5" width="343" height="40"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FwW-pV-GLO">
-                                        <rect key="frame" x="0.0" y="0.0" width="82" height="40"/>
-                                        <color key="backgroundColor" red="0.84681701509999996" green="0.8006486773" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="15"/>
-                                        <state key="normal" title="Car"/>
-                                        <connections>
-                                            <action selector="carTapped:" destination="AYC-gf-USD" eventType="touchUpInside" id="ogo-MQ-Iur"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcD-dX-PLO">
-                                        <rect key="frame" x="87" y="0.0" width="82" height="40"/>
-                                        <color key="backgroundColor" red="0.84681701509999996" green="0.8006486773" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="15"/>
-                                        <state key="normal" title="Guide"/>
-                                        <connections>
-                                            <action selector="guideTapped:" destination="AYC-gf-USD" eventType="touchUpInside" id="4Ew-0g-Yg3"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dct-JM-CUx">
-                                        <rect key="frame" x="174" y="0.0" width="82" height="40"/>
-                                        <color key="backgroundColor" red="0.84681701509999996" green="0.8006486773" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="15"/>
-                                        <state key="normal" title="Meal"/>
-                                        <connections>
-                                            <action selector="mealTapped:" destination="AYC-gf-USD" eventType="touchUpInside" id="aIj-eW-rhU"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxq-IX-wLX">
-                                        <rect key="frame" x="261" y="0.0" width="82" height="40"/>
-                                        <color key="backgroundColor" red="0.84681701509999996" green="0.8006486773" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="Menlo-Bold" family="Menlo" pointSize="15"/>
-                                        <state key="normal" title="Date"/>
-                                        <connections>
-                                            <action selector="dateTapped:" destination="AYC-gf-USD" eventType="touchUpInside" id="Ru3-7M-LtV"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POS-rw-Te4" userLabel="Title Label">
+                                <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="acJ-3S-pB3"/>
+                                    <constraint firstAttribute="height" constant="30" id="Qha-QS-DdS"/>
                                 </constraints>
-                            </stackView>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eio-UW-h3I" userLabel="Description Label">
+                                <rect key="frame" x="0.0" y="38" width="343" height="22.5"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Wke-7a-A9c" secondAttribute="trailing" id="1r2-QM-ZPv"/>
-                            <constraint firstItem="Wke-7a-A9c" firstAttribute="top" secondItem="u7f-6U-GYy" secondAttribute="bottom" constant="16" id="Xj7-nQ-Pob"/>
-                            <constraint firstItem="u7f-6U-GYy" firstAttribute="top" secondItem="GnM-jE-bXD" secondAttribute="top" id="YZJ-5n-bBk"/>
-                            <constraint firstItem="Wke-7a-A9c" firstAttribute="leading" secondItem="GnM-jE-bXD" secondAttribute="leading" id="eOJ-nt-E2b"/>
-                            <constraint firstAttribute="trailing" secondItem="u7f-6U-GYy" secondAttribute="trailing" id="jIr-ls-N5b"/>
-                            <constraint firstItem="u7f-6U-GYy" firstAttribute="leading" secondItem="GnM-jE-bXD" secondAttribute="leading" id="kqI-JU-Vz1"/>
+                            <constraint firstItem="POS-rw-Te4" firstAttribute="top" secondItem="oZx-Zb-Pbn" secondAttribute="top" id="42g-JJ-gQy"/>
+                            <constraint firstItem="eio-UW-h3I" firstAttribute="leading" secondItem="oZx-Zb-Pbn" secondAttribute="leading" id="797-xo-ge2"/>
+                            <constraint firstItem="POS-rw-Te4" firstAttribute="leading" secondItem="oZx-Zb-Pbn" secondAttribute="leading" id="AhR-a3-FsU"/>
+                            <constraint firstAttribute="bottom" secondItem="eio-UW-h3I" secondAttribute="bottom" id="FtY-zF-jYE"/>
+                            <constraint firstItem="eio-UW-h3I" firstAttribute="top" secondItem="POS-rw-Te4" secondAttribute="bottom" constant="8" id="Rfg-tY-iYS"/>
+                            <constraint firstItem="eio-UW-h3I" firstAttribute="top" secondItem="POS-rw-Te4" secondAttribute="bottom" constant="8" id="XWg-TI-RcH"/>
+                            <constraint firstAttribute="trailing" secondItem="eio-UW-h3I" secondAttribute="trailing" id="lvJ-en-mVo"/>
+                            <constraint firstAttribute="trailing" secondItem="POS-rw-Te4" secondAttribute="trailing" id="vKY-J7-JOg"/>
                         </constraints>
-                    </stackView>
+                    </view>
                 </subviews>
-                <color key="backgroundColor" red="0.25033289190000002" green="0.58395797009999995" blue="0.46770584580000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="GnM-jE-bXD" firstAttribute="top" secondItem="BFb-G0-Fdb" secondAttribute="top" constant="16" id="ln7-s8-SrV"/>
-                    <constraint firstItem="GnM-jE-bXD" firstAttribute="leading" secondItem="BFb-G0-Fdb" secondAttribute="leading" constant="16" id="m3i-2o-kYe"/>
-                    <constraint firstAttribute="bottom" secondItem="GnM-jE-bXD" secondAttribute="bottom" constant="16" id="nwg-xJ-fzj"/>
-                    <constraint firstAttribute="trailing" secondItem="GnM-jE-bXD" secondAttribute="trailing" constant="16" id="p6h-u7-qsH"/>
+                    <constraint firstItem="oZx-Zb-Pbn" firstAttribute="top" secondItem="cWg-QW-esn" secondAttribute="top" constant="16" id="6Ey-GK-vBF"/>
+                    <constraint firstItem="oZx-Zb-Pbn" firstAttribute="leading" secondItem="cWg-QW-esn" secondAttribute="leading" constant="16" id="B43-Bi-2bZ"/>
+                    <constraint firstAttribute="bottom" secondItem="oZx-Zb-Pbn" secondAttribute="bottom" constant="16" id="EBG-md-19g"/>
+                    <constraint firstAttribute="trailing" secondItem="oZx-Zb-Pbn" secondAttribute="trailing" constant="16" id="jkc-sT-b40"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="1" green="0.3641251244" blue="0.30440043659999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
-                <outlet property="carButton" destination="FwW-pV-GLO" id="W4f-8R-5R3"/>
-                <outlet property="dateButton" destination="cxq-IX-wLX" id="3tY-M8-Req"/>
-                <outlet property="descriptionLabel" destination="p6u-So-bz3" id="EVr-C7-dJx"/>
-                <outlet property="guideButton" destination="FcD-dX-PLO" id="xkV-Ti-PVX"/>
-                <outlet property="mealButton" destination="dct-JM-CUx" id="0xV-B6-1Xp"/>
-                <outlet property="titleLable" destination="y0s-1Y-70K" id="hkA-Gq-YcP"/>
+                <outlet property="descriptionLabel" destination="eio-UW-h3I" id="R7T-m9-L0f"/>
+                <outlet property="titleLable" destination="POS-rw-Te4" id="eBa-MS-cVG"/>
             </connections>
-            <point key="canvasLocation" x="33.5" y="26"/>
+            <point key="canvasLocation" x="40.5" y="242.5"/>
         </tableViewCell>
     </objects>
 </document>

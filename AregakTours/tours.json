@@ -20,7 +20,7 @@
  "name": "Yerevan - Sisian",
  "description": "We will welcome you at  Zvartnots airport  and take you to your guesthouse.",
  "transport": "35000amd",
- "guide": "10000amd",
+ "guide": "10000amd", 
  "meal": "5000amd"
  }
  ]
