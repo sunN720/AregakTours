@@ -14,6 +14,7 @@ protocol ToursView: class {
   func finishLoading()
   func setTours(_ tours: [TourViewModel])
   func updateViewFor(emptyState: Bool)
+  func displayBookView()
 }
 
 class ToursPresenter {
@@ -26,6 +27,16 @@ class ToursPresenter {
   
   func notifyViewDidLoad() {
     fetchTours()
+  }
+  
+  func tourWasSelected(tour: TourViewModel) {
+    toursView?.displayBookView()
+  }
+  
+  func createTotalViewModel(tour: TourViewModel) {
+    /*let totalPrice = calculateTour(transport: tour.transport, meal: tour.meal, guide: tour.guide)
+    let bookViewModel = BookViewModel(totalPrice: totalPrice)
+    self.toursView?.displayBookView(bookViewModel)*/
   }
   
   

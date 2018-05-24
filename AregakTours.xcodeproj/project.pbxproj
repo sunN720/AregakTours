@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E35193B120AFCEDB006E1BD7 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35193B020AFCEDB006E1BD7 /* BookView.swift */; };
+		E35193B320AFCFC5006E1BD7 /* BookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E35193B220AFCFC5006E1BD7 /* BookView.xib */; };
+		E35193B720B0C624006E1BD7 /* SelectedTour.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35193B620B0C624006E1BD7 /* SelectedTour.swift */; };
 		E35501D82027C622009B175D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35501D72027C622009B175D /* AppDelegate.swift */; };
 		E35501DA2027C622009B175D /* ToursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35501D92027C622009B175D /* ToursViewController.swift */; };
 		E35501DD2027C622009B175D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E35501DB2027C622009B175D /* Main.storyboard */; };
@@ -46,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E35193B020AFCEDB006E1BD7 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
+		E35193B220AFCFC5006E1BD7 /* BookView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookView.xib; sourceTree = "<group>"; };
+		E35193B620B0C624006E1BD7 /* SelectedTour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTour.swift; sourceTree = "<group>"; };
 		E35501D42027C622009B175D /* AregakTours.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AregakTours.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E35501D72027C622009B175D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E35501D92027C622009B175D /* ToursViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				E398FDB0204B217200CB95D3 /* Tour.swift */,
+				E35193B620B0C624006E1BD7 /* SelectedTour.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -189,6 +196,8 @@
 				E398FDBA204B2B0A00CB95D3 /* TourTableViewCell.swift */,
 				E398FDBC204B2B1800CB95D3 /* TourTableViewCell.xib */,
 				E3E1A967208857DE004F477C /* TourViewModel.swift */,
+				E35193B020AFCEDB006E1BD7 /* BookView.swift */,
+				E35193B220AFCFC5006E1BD7 /* BookView.xib */,
 			);
 			path = Tours;
 			sourceTree = "<group>";
@@ -319,6 +328,7 @@
 				E35501E22027C622009B175D /* LaunchScreen.storyboard in Resources */,
 				E35501DF2027C622009B175D /* Assets.xcassets in Resources */,
 				E35501DD2027C622009B175D /* Main.storyboard in Resources */,
+				E35193B320AFCFC5006E1BD7 /* BookView.xib in Resources */,
 				E398FDBD204B2B1900CB95D3 /* TourTableViewCell.xib in Resources */,
 				E3B0B992204229AC00593790 /* tours.json in Resources */,
 			);
@@ -354,6 +364,8 @@
 				E35501D82027C622009B175D /* AppDelegate.swift in Sources */,
 				E3B0B99020421DA500593790 /* ToursPresenter.swift in Sources */,
 				E398FDB1204B217300CB95D3 /* Tour.swift in Sources */,
+				E35193B120AFCEDB006E1BD7 /* BookView.swift in Sources */,
+				E35193B720B0C624006E1BD7 /* SelectedTour.swift in Sources */,
 				E3F67F352051E0D700A693E8 /* UIExtensions.swift in Sources */,
 				E398FDB7204B219100CB95D3 /* NetworkService.swift in Sources */,
 				E398FDB6204B219100CB95D3 /* NetworkRequest.swift in Sources */,

@@ -8,5 +8,19 @@
 
 import Foundation
 
-// takes TourCell button tapped values and calculates and returns total sum to display on main view controller
-// Great candidate for TDD
+
+struct ToursCalculator {
+  let selectedTours = [SelectedTour]()
+  
+  func calculateSingleTour(transport: String, meal: String, guide: String) -> String {
+    return "1000amd"
+  }
+  
+  func calculateTotal() {
+    
+  }
+  
+}
+
+
+

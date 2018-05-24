@@ -2,7 +2,7 @@
  {
  "id": 1,
  "name": "Yerevan - Goris",
- "description": "Short Description",
+ "description": "Khor Virap ➜ Noravank ➜ Areni Wine Factory ➜ Zorac Qarer ➜ Tatev",
  "transport": "20000amd",
  "guide": "10000amd",
  "meal": "5000amd"
@@ -13,7 +13,8 @@
  "description": "We will pick you up in the morning and we kick off the  Yerevan city tour . We will start with a visit to the Matenadaran, a repository of ancient Armenian manuscripts.",
  "transport": "55000amd",
  "guide": "10000amd",
- "meal": "5000amd"
+ "meal": "5000amd",
+ "return_back": "15000amd"
  },
  {
  "id": 3,

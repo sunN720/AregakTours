@@ -15,15 +15,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="93" id="3XB-D5-PbQ" customClass="TourTableViewCell" customModule="AregakTours" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="93"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="261" id="3XB-D5-PbQ" customClass="TourTableViewCell" customModule="AregakTours" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="261"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3XB-D5-PbQ" id="cWg-QW-esn">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="92.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="260.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oZx-Zb-Pbn" userLabel="Container View">
-                        <rect key="frame" x="16" y="16" width="343" height="60.5"/>
+                        <rect key="frame" x="16" y="16" width="343" height="228.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POS-rw-Te4" userLabel="Title Label">
                                 <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
@@ -35,23 +35,87 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eio-UW-h3I" userLabel="Description Label">
-                                <rect key="frame" x="0.0" y="38" width="343" height="22.5"/>
-                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                <rect key="frame" x="0.0" y="38" width="343" height="15.5"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WId-Kg-kg8">
+                                <rect key="frame" x="8" y="69" width="327" height="32"/>
+                                <color key="backgroundColor" red="0.25033289190000002" green="0.58395797009999995" blue="0.46770584580000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="A0d-Ol-lnO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                <state key="normal" title="Transport">
+                                    <color key="titleColor" red="0.97654226040000003" green="0.97654226040000003" blue="0.97654226040000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9te-dC-pKf">
+                                <rect key="frame" x="8" y="109" width="327" height="32"/>
+                                <color key="backgroundColor" red="0.25033289190000002" green="0.58395797009999995" blue="0.46770584580000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                <state key="normal" title="Meal">
+                                    <color key="titleColor" red="0.97654226040000003" green="0.97654226040000003" blue="0.97654226040000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="mealTapped:" destination="3XB-D5-PbQ" eventType="touchUpInside" id="HcQ-en-zsv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pVw-Su-PYf">
+                                <rect key="frame" x="8" y="149" width="327" height="32"/>
+                                <color key="backgroundColor" red="0.25033289190000002" green="0.58395797009999995" blue="0.46770584580000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                <state key="normal" title="Guide">
+                                    <color key="titleColor" red="0.97654226040000003" green="0.97654226040000003" blue="0.97654226040000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="guideTapped:" destination="3XB-D5-PbQ" eventType="touchUpInside" id="Q1U-st-CZK"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Date" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NvN-En-1dS" userLabel="Date Text Field">
+                                <rect key="frame" x="8" y="189" width="327" height="32"/>
+                                <color key="backgroundColor" red="0.25033289190000002" green="0.58395797009999995" blue="0.46770584580000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.97654226040000003" green="0.97654226040000003" blue="0.97654226040000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="dateTapped:" destination="3XB-D5-PbQ" eventType="editingDidBegin" id="AEI-tf-vl8"/>
+                                    <outlet property="delegate" destination="3XB-D5-PbQ" id="PzE-dY-RTl"/>
+                                </connections>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.35152787889999998" green="0.72875233539999995" blue="0.69546135099999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="POS-rw-Te4" firstAttribute="top" secondItem="oZx-Zb-Pbn" secondAttribute="top" id="42g-JJ-gQy"/>
+                            <constraint firstAttribute="bottom" secondItem="NvN-En-1dS" secondAttribute="bottom" constant="8" id="4Gb-By-W8x"/>
                             <constraint firstItem="eio-UW-h3I" firstAttribute="leading" secondItem="oZx-Zb-Pbn" secondAttribute="leading" id="797-xo-ge2"/>
+                            <constraint firstItem="NvN-En-1dS" firstAttribute="height" secondItem="WId-Kg-kg8" secondAttribute="height" id="8Sn-P0-yFK"/>
                             <constraint firstItem="POS-rw-Te4" firstAttribute="leading" secondItem="oZx-Zb-Pbn" secondAttribute="leading" id="AhR-a3-FsU"/>
-                            <constraint firstAttribute="bottom" secondItem="eio-UW-h3I" secondAttribute="bottom" id="FtY-zF-jYE"/>
+                            <constraint firstItem="pVw-Su-PYf" firstAttribute="height" secondItem="WId-Kg-kg8" secondAttribute="height" id="E5B-wS-l8R"/>
+                            <constraint firstItem="WId-Kg-kg8" firstAttribute="leading" secondItem="oZx-Zb-Pbn" secondAttribute="leading" constant="8" id="KwH-Ji-mLh"/>
+                            <constraint firstItem="WId-Kg-kg8" firstAttribute="top" secondItem="eio-UW-h3I" secondAttribute="bottom" constant="16" id="RDX-OE-yxa"/>
                             <constraint firstItem="eio-UW-h3I" firstAttribute="top" secondItem="POS-rw-Te4" secondAttribute="bottom" constant="8" id="Rfg-tY-iYS"/>
+                            <constraint firstItem="9te-dC-pKf" firstAttribute="top" secondItem="WId-Kg-kg8" secondAttribute="bottom" constant="8" id="SSa-8Z-C9j"/>
+                            <constraint firstItem="NvN-En-1dS" firstAttribute="leading" secondItem="oZx-Zb-Pbn" secondAttribute="leading" constant="8" id="SeF-3U-QWs"/>
+                            <constraint firstItem="pVw-Su-PYf" firstAttribute="top" secondItem="9te-dC-pKf" secondAttribute="bottom" constant="8" id="W26-U7-9Yq"/>
                             <constraint firstItem="eio-UW-h3I" firstAttribute="top" secondItem="POS-rw-Te4" secondAttribute="bottom" constant="8" id="XWg-TI-RcH"/>
+                            <constraint firstItem="9te-dC-pKf" firstAttribute="leading" secondItem="oZx-Zb-Pbn" secondAttribute="leading" constant="8" id="bKf-CM-g4b"/>
+                            <constraint firstAttribute="trailing" secondItem="9te-dC-pKf" secondAttribute="trailing" constant="8" id="eHz-iY-6zJ"/>
+                            <constraint firstItem="NvN-En-1dS" firstAttribute="top" secondItem="pVw-Su-PYf" secondAttribute="bottom" constant="8" id="iHk-gs-6gE"/>
+                            <constraint firstItem="pVw-Su-PYf" firstAttribute="leading" secondItem="oZx-Zb-Pbn" secondAttribute="leading" constant="8" id="ijh-Iq-LDn"/>
+                            <constraint firstAttribute="trailing" secondItem="pVw-Su-PYf" secondAttribute="trailing" constant="8" id="klA-YP-XTJ"/>
                             <constraint firstAttribute="trailing" secondItem="eio-UW-h3I" secondAttribute="trailing" id="lvJ-en-mVo"/>
+                            <constraint firstItem="9te-dC-pKf" firstAttribute="height" secondItem="WId-Kg-kg8" secondAttribute="height" id="p9O-zJ-YjV"/>
+                            <constraint firstAttribute="trailing" secondItem="WId-Kg-kg8" secondAttribute="trailing" constant="8" id="uOK-BN-bHw"/>
                             <constraint firstAttribute="trailing" secondItem="POS-rw-Te4" secondAttribute="trailing" id="vKY-J7-JOg"/>
+                            <constraint firstAttribute="trailing" secondItem="NvN-En-1dS" secondAttribute="trailing" constant="8" id="vLB-BK-MgX"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>
@@ -62,10 +126,14 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="carButton" destination="WId-Kg-kg8" id="tg7-ro-CTr"/>
+                <outlet property="dateField" destination="NvN-En-1dS" id="git-rF-lH4"/>
                 <outlet property="descriptionLabel" destination="eio-UW-h3I" id="R7T-m9-L0f"/>
+                <outlet property="guideButton" destination="pVw-Su-PYf" id="1Jj-De-wiG"/>
+                <outlet property="mealButton" destination="9te-dC-pKf" id="NEc-eI-g5d"/>
                 <outlet property="titleLable" destination="POS-rw-Te4" id="eBa-MS-cVG"/>
             </connections>
-            <point key="canvasLocation" x="40.5" y="242.5"/>
+            <point key="canvasLocation" x="40.5" y="326.5"/>
         </tableViewCell>
     </objects>
 </document>
