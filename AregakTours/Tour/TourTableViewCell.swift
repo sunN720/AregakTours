@@ -10,6 +10,11 @@ import UIKit
 
 class TourTableViewCell: UITableViewCell {
   
+  enum State {
+    case regular
+    case selected
+  }
+  
   @IBOutlet weak var titleLable: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var containerView: UIView!
@@ -19,11 +24,21 @@ class TourTableViewCell: UITableViewCell {
   @IBOutlet weak var mealButton: UIButton!
   @IBOutlet weak var dateField: UITextField!
   
+  var state: State = .regular
+  
   fileprivate lazy var datePicker: UIDatePicker = {
     let datePicker = UIDatePicker()
     datePicker.datePickerMode = .date
     return datePicker
   }()
+  
+  var cellSelected: Bool {
+    if case .selected = state {
+      return true
+    } else {
+      return false
+    }
+  }
   
   // MARK: -  public methods
   func setupCell(viewModel: TourViewModel) {
@@ -34,6 +49,20 @@ class TourTableViewCell: UITableViewCell {
     mealButton.setTitle("meal " + viewModel.meal, for: .normal)
     dateField.text = "Select the date"
   }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+  
+    if selected == true {
+      guard cellSelected == false else {
+        containerView.backgroundColor = .green
+        state = .regular
+        return
+      }
+      containerView.backgroundColor = .red
+      state = .selected
+    }
+  }
+
 }
 
 // MARK: -  private methods
@@ -51,7 +80,6 @@ fileprivate extension TourTableViewCell {
     
     dateField.inputAccessoryView = toolbar
     dateField.inputView = datePicker
-    
   }
   
   @objc func doneAction() {

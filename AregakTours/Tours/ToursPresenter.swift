@@ -15,11 +15,13 @@ protocol ToursView: class {
   func setTours(_ tours: [TourViewModel])
   func updateViewFor(emptyState: Bool)
   func displayBookView()
+  func hideBookView()
 }
 
 class ToursPresenter {
   fileprivate let toursService: ToursInteractorAdaptor!
   weak var toursView : ToursView?
+  var toursViewModel = [TourViewModel]()
   
   init(toursService: ToursInteractorAdaptor){
     self.toursService = toursService
@@ -29,14 +31,13 @@ class ToursPresenter {
     fetchTours()
   }
   
-  func tourWasSelected(tour: TourViewModel) {
-    toursView?.displayBookView()
+  func tourWasSelected(at indexPath: IndexPath) {
+    let tour = toursViewModel[indexPath.row]
+    
   }
   
   func createTotalViewModel(tour: TourViewModel) {
-    /*let totalPrice = calculateTour(transport: tour.transport, meal: tour.meal, guide: tour.guide)
-    let bookViewModel = BookViewModel(totalPrice: totalPrice)
-    self.toursView?.displayBookView(bookViewModel)*/
+
   }
   
   
@@ -45,24 +46,26 @@ class ToursPresenter {
     
     toursService.fetchLocalTours { [weak self] (tours, error) in
       
-      self?.toursView?.finishLoading()
+      guard let `self` = self else { return }
+      
+      self.toursView?.finishLoading()
       
       if let error = error {
-        self?.toursView?.updateViewFor(emptyState: true)
+        self.toursView?.updateViewFor(emptyState: true)
       }
       
       guard let tours = tours, tours.count > 0 else {
-        self?.toursView?.updateViewFor(emptyState: true)
+        self.toursView?.updateViewFor(emptyState: true)
         return
       }
       
-      var toursViewModel = [TourViewModel]()
       for tour in tours {
-        let tourViewModel = TourViewModel.init(tour: tour)
-        toursViewModel.append(tourViewModel)
+        let tourViewModel = TourViewModel(tour: tour)
+        self.toursViewModel.append(tourViewModel)
       }
-      self?.toursView?.setTours(toursViewModel)
-      self?.toursView?.updateViewFor(emptyState: false)
+
+      self.toursView?.setTours(self.toursViewModel)
+      self.toursView?.updateViewFor(emptyState: false)
     }
   }
 }

@@ -74,7 +74,8 @@ extension ToursViewController: UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-   toursPresenter.tourWasSelected(tour: toursToDisplay[indexPath.row])
+    //update cell background color
+    toursPresenter.tourWasSelected(at: indexPath)
   }
 }
 
@@ -100,6 +101,10 @@ extension ToursViewController: ToursView {
   
   func displayBookView() {
     showTotalViewWithAnimation(true)
+  }
+  
+  func hideBookView() {
+    hideTotalViewWithAnimation(true)
   }
 }
 
