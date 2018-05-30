@@ -41,7 +41,12 @@ class ToursPresenter {
         selectedTours.remove(at: index)
         tour.state = .regular
     }
-    print("selected tours count: \(selectedTours.count)")
+    
+    if selectedTours.count > 0 {
+      toursView?.displayBookView()
+    } else {
+      toursView?.hideBookView()
+    }
   }
   
   func createTotalViewModel(tour: TourViewModel) {
