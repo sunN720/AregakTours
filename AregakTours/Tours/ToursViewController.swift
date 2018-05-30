@@ -74,7 +74,7 @@ extension ToursViewController: UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //update cell background color
+    let cell = tableView.cellForRow(at: indexPath) as! TourTableViewCell
     toursPresenter.tourWasSelected(at: indexPath)
   }
 }

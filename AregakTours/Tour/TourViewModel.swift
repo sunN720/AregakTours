@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TourViewModel {
+class TourViewModel {
   
   enum State {
     case regular
@@ -33,5 +33,16 @@ struct TourViewModel {
     self.meal = tour.meal
     self.description = tour.description
     self.date = ""
+  }
+  
+  func updateState(state: State) {
+    self.state = state
+  }
+  
+}
+
+extension TourViewModel: Equatable {
+  static func == (l: TourViewModel, r: TourViewModel) -> Bool {
+    return true
   }
 }

@@ -22,6 +22,7 @@ class ToursPresenter {
   fileprivate let toursService: ToursInteractorAdaptor!
   weak var toursView : ToursView?
   var toursViewModel = [TourViewModel]()
+  var selectedTours = [TourViewModel]()
   
   init(toursService: ToursInteractorAdaptor){
     self.toursService = toursService
@@ -33,7 +34,14 @@ class ToursPresenter {
   
   func tourWasSelected(at indexPath: IndexPath) {
     let tour = toursViewModel[indexPath.row]
-    
+    if tour.state == .regular {
+      selectedTours.append(tour)
+      tour.state = .selected
+    } else if let index = selectedTours.index(of: tour) {
+        selectedTours.remove(at: index)
+        tour.state = .regular
+    }
+    print("selected tours count: \(selectedTours.count)")
   }
   
   func createTotalViewModel(tour: TourViewModel) {

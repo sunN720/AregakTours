@@ -11,8 +11,7 @@ import Foundation
 struct SelectedTour {
   var id: Int
   var name: String
-  var transport: String
+  var transport: String?
   var guide: String?
   var meal: String?
-  var totalPrice: String
 }
