@@ -1,0 +1,8 @@
+protocol BookViewModelInputs {
+	
+}
+
+
+struct BookViewModel {
+	
+}

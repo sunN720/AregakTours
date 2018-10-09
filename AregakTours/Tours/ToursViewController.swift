@@ -5,12 +5,12 @@ class ToursViewController: UIViewController {
   @IBOutlet weak var emptyView: UIView?
   @IBOutlet weak var tableView: UITableView?
   @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
-  @IBOutlet weak var totalView: UIView!
+  @IBOutlet weak var totalView: BookView!
   
   @IBOutlet weak var totalViewBottomConstraint: NSLayoutConstraint!
   @IBOutlet weak var totalViewHeightConstraint: NSLayoutConstraint!
   
-  
+  let bookViewAnimationDuration = 0.5
   
   fileprivate let toursPresenter = ToursPresenter(toursService: ToursInteractor(service: NetworkService()))
   fileprivate var toursToDisplay = [TourViewModel]()
@@ -27,8 +27,7 @@ class ToursViewController: UIViewController {
   
   fileprivate func hideTotalViewWithAnimation(_ animation: Bool) {
     if animation {
-      UIView.animate(withDuration: 0.5, animations: { [weak self] in
-        guard let `self` = self else { return }
+      UIView.animate(withDuration: bookViewAnimationDuration, animations: {
         self.totalViewBottomConstraint.constant = -1 * self.totalViewHeightConstraint.constant
       }, completion: { [weak self] (finished) -> () in
         self?.totalView?.alpha = 0.0
@@ -38,15 +37,14 @@ class ToursViewController: UIViewController {
     }
   }
   
-  fileprivate func showTotalView(totalAmount: String, animation: Bool) {
+  fileprivate func showTotalView(_ viewModel: BookViewModel, animation: Bool) {
     if animation {
-      UIView.animate(withDuration: 1.0, animations: { [weak self] in
-        
-        guard let `self` = self else { return }
-        
+      UIView.animate(withDuration: bookViewAnimationDuration, animations: {
         self.totalView?.alpha = 1.0
         self.totalViewBottomConstraint?.constant = 0.0
-        }, completion: nil)
+        }, completion: { finished in
+					self.totalView.setup(with: viewModel)
+			})
     } else {
       totalView?.alpha = 1.0
     }
@@ -77,7 +75,6 @@ extension ToursViewController: UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    let cell = tableView.cellForRow(at: indexPath) as! TourTableViewCell
     toursPresenter.tourWasSelected(at: indexPath)
   }
 }
@@ -104,8 +101,8 @@ extension ToursViewController: ToursView {
     emptyView?.isHidden = !emptyState
   }
   
-  func displayBookView(total: String) {
-    showTotalView(totalAmount: total, animation: true)
+  func displayBookView(_ viewModel: BookViewModel) {
+    showTotalView(viewModel, animation: true)
   }
   
   func hideBookView() {

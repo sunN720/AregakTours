@@ -15,4 +15,9 @@ class BookView: UIView {
   @IBAction func handleBookTap(_ sender: Any) {
     
   }
+
+	func setup(with viewModel: BookViewModel) {
+
+	}
+
 }
