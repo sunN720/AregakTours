@@ -12,11 +12,7 @@ import Foundation
 struct ToursCalculator {
   let selectedTours = [SelectedTour]()
   
-  func calculateSingleTour(transport: String, meal: String, guide: String) -> String {
-    return "1000amd"
-  }
-  
-  func calculateTotal() {
+  func calculateTotal(tours: [TourViewModel]) {
     
   }
   

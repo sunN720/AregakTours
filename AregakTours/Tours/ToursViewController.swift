@@ -38,11 +38,14 @@ class ToursViewController: UIViewController {
     }
   }
   
-  fileprivate func showTotalViewWithAnimation(_ animation: Bool) {
+  fileprivate func showTotalView(totalAmount: String, animation: Bool) {
     if animation {
       UIView.animate(withDuration: 1.0, animations: { [weak self] in
-        self?.totalView?.alpha = 1.0
-        self?.totalViewBottomConstraint?.constant = 0.0
+        
+        guard let `self` = self else { return }
+        
+        self.totalView?.alpha = 1.0
+        self.totalViewBottomConstraint?.constant = 0.0
         }, completion: nil)
     } else {
       totalView?.alpha = 1.0
@@ -79,6 +82,8 @@ extension ToursViewController: UITableViewDelegate {
   }
 }
 
+
+
 extension ToursViewController: ToursView {
   
   func startLoading() {
@@ -99,8 +104,8 @@ extension ToursViewController: ToursView {
     emptyView?.isHidden = !emptyState
   }
   
-  func displayBookView() {
-    showTotalViewWithAnimation(true)
+  func displayBookView(total: String) {
+    showTotalView(totalAmount: total, animation: true)
   }
   
   func hideBookView() {

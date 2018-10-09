@@ -14,7 +14,7 @@ protocol ToursView: class {
   func finishLoading()
   func setTours(_ tours: [TourViewModel])
   func updateViewFor(emptyState: Bool)
-  func displayBookView()
+  func displayBookView(total: String)
   func hideBookView()
 }
 
@@ -43,16 +43,17 @@ class ToursPresenter {
     }
     
     if selectedTours.count > 0 {
-      toursView?.displayBookView()
+      let totalAmount = calculateTotalAmount(tours: selectedTours)
+      toursView?.displayBookView(total: totalAmount)
     } else {
       toursView?.hideBookView()
     }
   }
   
-  func createTotalViewModel(tour: TourViewModel) {
-
+  func calculateTotalAmount(tours: [TourViewModel]) -> String {
+    let totalAmount = tours.reduce(0, { Int($0) + Int($1.transport)! })
+    return String(totalAmount)
   }
-  
   
   func fetchTours() {
     self.toursView?.startLoading()
