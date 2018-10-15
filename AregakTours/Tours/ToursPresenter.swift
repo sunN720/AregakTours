@@ -14,7 +14,7 @@ protocol ToursView: class {
   func finishLoading()
   func setTours(_ tours: [TourViewModel])
   func updateViewFor(emptyState: Bool)
-	func displayBookView(_ viewModel: BookViewModel)
+	func displayBookView(_ viewModel: BookViewModeling)
   func hideBookView()
 }
 
@@ -43,7 +43,6 @@ class ToursPresenter {
     }
     
     if selectedTours.count > 0 {
-      let totalAmount = calculateTotalAmount(tours: selectedTours)
 			let viewModel = BookViewModel()
       toursView?.displayBookView(viewModel)
     } else {

@@ -1,11 +1,12 @@
-//
-//  ToursViewModel.swift
-//  AregakTours
-//
-//  Created by toxicsun on 5/25/18.
-//  Copyright © 2018 Arevik Tunyan. All rights reserved.
-//
+protocol ToursViewModeling {
+	func startLoading()
+	func finishLoading()
+	func setTours(_ tours: [TourViewModel])
+	func updateViewFor(emptyState: Bool)
+	func displayBookView(_ viewModel: BookViewModel)
+	func hideBookView()
+}
 
-import Foundation
+struct ToursViewModel {
 
-// all the calculation will happen here
+}

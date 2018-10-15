@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E31456C820B8BD5D000298C2 /* ToursViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31456C720B8BD5D000298C2 /* ToursViewModel.swift */; };
 		E350450A216D59AC00273E10 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3504509216D59AC00273E10 /* BookViewModel.swift */; };
 		E35193B120AFCEDB006E1BD7 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35193B020AFCEDB006E1BD7 /* BookView.swift */; };
 		E35193B320AFCFC5006E1BD7 /* BookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E35193B220AFCFC5006E1BD7 /* BookView.xib */; };
@@ -28,6 +27,8 @@
 		E398FDBD204B2B1900CB95D3 /* TourTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E398FDBC204B2B1800CB95D3 /* TourTableViewCell.xib */; };
 		E3B0B99020421DA500593790 /* ToursPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B0B98F20421DA500593790 /* ToursPresenter.swift */; };
 		E3B0B992204229AC00593790 /* tours.json in Resources */ = {isa = PBXBuildFile; fileRef = E3B0B991204229AC00593790 /* tours.json */; };
+		E3DE3CA221751C2D007A0DCB /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE3CA121751C2D007A0DCB /* ArrayExtension.swift */; };
+		E3DE3CA421751DA8007A0DCB /* ToursViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE3CA321751DA8007A0DCB /* ToursViewModel.swift */; };
 		E3E1A968208857DE004F477C /* TourViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E1A967208857DE004F477C /* TourViewModel.swift */; };
 		E3F67F352051E0D700A693E8 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F67F342051E0D700A693E8 /* UIExtensions.swift */; };
 		E3F67F372051E5DF00A693E8 /* ToursCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F67F362051E5DF00A693E8 /* ToursCalculator.swift */; };
@@ -51,7 +52,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E31456C720B8BD5D000298C2 /* ToursViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursViewModel.swift; sourceTree = "<group>"; };
 		E3504509216D59AC00273E10 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		E35193B020AFCEDB006E1BD7 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		E35193B220AFCFC5006E1BD7 /* BookView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookView.xib; sourceTree = "<group>"; };
@@ -78,6 +78,8 @@
 		E398FDBC204B2B1800CB95D3 /* TourTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TourTableViewCell.xib; sourceTree = "<group>"; };
 		E3B0B98F20421DA500593790 /* ToursPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursPresenter.swift; sourceTree = "<group>"; };
 		E3B0B991204229AC00593790 /* tours.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tours.json; path = AregakTours/tours.json; sourceTree = SOURCE_ROOT; };
+		E3DE3CA121751C2D007A0DCB /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		E3DE3CA321751DA8007A0DCB /* ToursViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursViewModel.swift; sourceTree = "<group>"; };
 		E3E1A967208857DE004F477C /* TourViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViewModel.swift; sourceTree = "<group>"; };
 		E3F67F342051E0D700A693E8 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		E3F67F362051E5DF00A693E8 /* ToursCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursCalculator.swift; sourceTree = "<group>"; };
@@ -151,11 +153,11 @@
 		E35501D62027C622009B175D /* AregakTours */ = {
 			isa = PBXGroup;
 			children = (
+				E3E1A9652088574C004F477C /* Tours */,
 				E31456C520B8BBEB000298C2 /* BookView */,
 				E3F67F332051E0B100A693E8 /* Extensions */,
 				E398FDAF204B213C00CB95D3 /* DataModel */,
 				E398FDAE204B212800CB95D3 /* NetworkService */,
-				E3E1A9652088574C004F477C /* Tours */,
 				E3E1A96620885769004F477C /* Utils */,
 				E3DDAD912032778C00009689 /* Resources */,
 			);
@@ -219,7 +221,7 @@
 				E31456C620B8BD3B000298C2 /* TourCell */,
 				E35501D92027C622009B175D /* ToursViewController.swift */,
 				E3B0B98F20421DA500593790 /* ToursPresenter.swift */,
-				E31456C720B8BD5D000298C2 /* ToursViewModel.swift */,
+				E3DE3CA321751DA8007A0DCB /* ToursViewModel.swift */,
 			);
 			path = Tours;
 			sourceTree = "<group>";
@@ -236,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				E3F67F342051E0D700A693E8 /* UIExtensions.swift */,
+				E3DE3CA121751C2D007A0DCB /* ArrayExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -378,14 +381,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E398FDB9204B219100CB95D3 /* ToursInteractor.swift in Sources */,
+				E3DE3CA221751C2D007A0DCB /* ArrayExtension.swift in Sources */,
 				E398FDB8204B219100CB95D3 /* NetworkAdaptors.swift in Sources */,
 				E35501DA2027C622009B175D /* ToursViewController.swift in Sources */,
+				E3DE3CA421751DA8007A0DCB /* ToursViewModel.swift in Sources */,
 				E398FDBB204B2B0A00CB95D3 /* TourTableViewCell.swift in Sources */,
 				E3E1A968208857DE004F477C /* TourViewModel.swift in Sources */,
 				E350450A216D59AC00273E10 /* BookViewModel.swift in Sources */,
 				E3F67F372051E5DF00A693E8 /* ToursCalculator.swift in Sources */,
 				E35501D82027C622009B175D /* AppDelegate.swift in Sources */,
-				E31456C820B8BD5D000298C2 /* ToursViewModel.swift in Sources */,
 				E3B0B99020421DA500593790 /* ToursPresenter.swift in Sources */,
 				E398FDB1204B217300CB95D3 /* Tour.swift in Sources */,
 				E35193B120AFCEDB006E1BD7 /* BookView.swift in Sources */,

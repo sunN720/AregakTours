@@ -15,9 +15,13 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BookView" customModule="AregakTours" customModuleProvider="target">
+            <connections>
+                <outlet property="totalLabel" destination="uXf-Qg-u9y" id="L6k-EN-AmR"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BookView" customModule="AregakTours" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="67"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -31,7 +35,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Book by sending us email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fHd-nC-lzX">
-                    <rect key="frame" x="16" y="16" width="343" height="21"/>
+                    <rect key="frame" x="16" y="12" width="343" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="6vu-sV-QLj"/>
                     </constraints>
@@ -40,7 +44,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total: XXX amd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXf-Qg-u9y">
-                    <rect key="frame" x="16" y="45" width="343" height="14"/>
+                    <rect key="frame" x="16" y="41" width="343" height="18"/>
                     <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="13"/>
                     <color key="textColor" red="0.97654226036269431" green="0.97654226036269431" blue="0.97654226036269431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -52,7 +56,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fHd-nC-lzX" secondAttribute="trailing" constant="16" id="65l-j9-oMs"/>
                 <constraint firstItem="fHd-nC-lzX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="DGq-eN-cVb"/>
                 <constraint firstItem="wnu-NN-vbJ" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Fed-XX-snM"/>
-                <constraint firstItem="fHd-nC-lzX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="UFt-em-iAn"/>
+                <constraint firstItem="fHd-nC-lzX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12" id="UFt-em-iAn"/>
                 <constraint firstItem="wnu-NN-vbJ" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="ZrI-Y5-kjC"/>
                 <constraint firstItem="uXf-Qg-u9y" firstAttribute="top" secondItem="fHd-nC-lzX" secondAttribute="bottom" constant="8" id="bJf-1C-tIC"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="uXf-Qg-u9y" secondAttribute="trailing" constant="16" id="d0u-zF-G4w"/>
@@ -62,9 +66,6 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <connections>
-                <outlet property="totalLabel" destination="uXf-Qg-u9y" id="rxr-IJ-hyt"/>
-            </connections>
             <point key="canvasLocation" x="33.5" y="-246.5"/>
         </view>
     </objects>

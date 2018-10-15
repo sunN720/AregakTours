@@ -37,13 +37,13 @@ class ToursViewController: UIViewController {
     }
   }
   
-  fileprivate func showTotalView(_ viewModel: BookViewModel, animation: Bool) {
+  fileprivate func showTotalView(_ viewModel: BookViewModeling, animation: Bool) {
     if animation {
       UIView.animate(withDuration: bookViewAnimationDuration, animations: {
         self.totalView?.alpha = 1.0
         self.totalViewBottomConstraint?.constant = 0.0
         }, completion: { finished in
-					self.totalView.setup(with: viewModel)
+					self.totalView?.setup(with: viewModel)
 			})
     } else {
       totalView?.alpha = 1.0
@@ -101,7 +101,7 @@ extension ToursViewController: ToursView {
     emptyView?.isHidden = !emptyState
   }
   
-  func displayBookView(_ viewModel: BookViewModel) {
+  func displayBookView(_ viewModel: BookViewModeling) {
     showTotalView(viewModel, animation: true)
   }
   

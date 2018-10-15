@@ -1,35 +1,31 @@
-//
-//  UIExtensions.swift
-//  AregakTours
-//
-//  Created by toxicsun on 3/8/18.
-//  Copyright © 2018 Arevik Tunyan. All rights reserved.
-//
-
 import UIKit
 
+extension UIView {
+	func xibSetup() {
+		let view = loadFromNib()
+		addSubview(view)
+		bindToSuperview(view)
+	}
 
-extension UIButton {
-  
-  func button(imageName: String, text: String) {
-    
-    guard let image = UIImage(named: imageName) else { return }
-    let imageSize = image.size
-    
-    let button = self
-    button.setImage(image, for: .normal)
-    button.imageView?.contentMode = .scaleAspectFit
-    button.imageEdgeInsets = UIEdgeInsetsMake(5,  25, 20, 0)
-    button.setTitle(text, for: .normal)
-    button.titleLabel?.textAlignment = .center
-    button.titleEdgeInsets = UIEdgeInsetsMake(25, -20, 5, 0)
-  }
+	func loadFromNib<T: UIView>() -> T {
+		let selfType = type(of: self)
+		let bundle = Bundle(for: selfType)
+		let nibName = String(describing: selfType)
+		let nib = UINib(nibName: nibName, bundle: bundle)
+
+		guard let view = nib.instantiate(withOwner: self, options: nil).first as? T else {
+			fatalError("Error loading nib with name \(nibName)")
+		}
+		return view
+	}
+
+	func bindToSuperview(_ view: UIView) {
+		view.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			view.topAnchor.constraint(equalTo: topAnchor),
+			view.leftAnchor.constraint(equalTo: leftAnchor),
+			view.rightAnchor.constraint(equalTo: rightAnchor),
+			view.bottomAnchor.constraint(equalTo: bottomAnchor)
+			])
+	}
 }
-
-extension Array {
-  mutating func removeObject<T>(obj: T) where T : Equatable {
-    self = self.filter({$0 as? T != obj})
-  }
-}
-
-

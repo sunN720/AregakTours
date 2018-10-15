@@ -15,6 +15,5 @@ struct Tour: Codable {
   var guide: String
   var meal: String
   var description: String?
- // var pdfUrl: String?
 }
 

@@ -9,15 +9,16 @@
 import UIKit
 
 class BookView: UIView {
-  
-  @IBOutlet weak var totalLabel: UILabel!
-  
-  @IBAction func handleBookTap(_ sender: Any) {
-    
-  }
 
-	func setup(with viewModel: BookViewModel) {
+	@IBOutlet weak var totalLabel: UILabel!
 
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+		xibSetup()
 	}
 
+	func setup(with viewModel: BookViewModeling) {
+		totalLabel.text = viewModel.outputs.totalAmount
+	}
+	
 }
