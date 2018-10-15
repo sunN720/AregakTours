@@ -1,16 +1,11 @@
-//
-//  TotalView.swift
-//  AregakTours
-//
-//  Created by toxicsun on 5/19/18.
-//  Copyright © 2018 Arevik Tunyan. All rights reserved.
-//
-
+import RxSwift
 import UIKit
 
 class BookView: UIView {
 
 	@IBOutlet weak var totalLabel: UILabel!
+
+	private let disposeBag = DisposeBag()
 
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
@@ -18,7 +13,12 @@ class BookView: UIView {
 	}
 
 	func setup(with viewModel: BookViewModeling) {
-		totalLabel.text = viewModel.outputs.totalAmount
+		viewModel.outputs.totalAmount
+			.subscribe(
+				onNext: {[weak self] total in
+					self?.totalLabel.text = total
+				}
+			).disposed(by: disposeBag)
 	}
 	
 }

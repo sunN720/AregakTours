@@ -10,7 +10,6 @@
 		E350450A216D59AC00273E10 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3504509216D59AC00273E10 /* BookViewModel.swift */; };
 		E35193B120AFCEDB006E1BD7 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35193B020AFCEDB006E1BD7 /* BookView.swift */; };
 		E35193B320AFCFC5006E1BD7 /* BookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E35193B220AFCFC5006E1BD7 /* BookView.xib */; };
-		E35193B720B0C624006E1BD7 /* SelectedTour.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35193B620B0C624006E1BD7 /* SelectedTour.swift */; };
 		E35501D82027C622009B175D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35501D72027C622009B175D /* AppDelegate.swift */; };
 		E35501DA2027C622009B175D /* ToursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35501D92027C622009B175D /* ToursViewController.swift */; };
 		E35501DD2027C622009B175D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E35501DB2027C622009B175D /* Main.storyboard */; };
@@ -29,9 +28,12 @@
 		E3B0B992204229AC00593790 /* tours.json in Resources */ = {isa = PBXBuildFile; fileRef = E3B0B991204229AC00593790 /* tours.json */; };
 		E3DE3CA221751C2D007A0DCB /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE3CA121751C2D007A0DCB /* ArrayExtension.swift */; };
 		E3DE3CA421751DA8007A0DCB /* ToursViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DE3CA321751DA8007A0DCB /* ToursViewModel.swift */; };
+		E3DE3CA8217535E0007A0DCB /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3DE3CA6217535E0007A0DCB /* RxSwift.framework */; };
+		E3DE3CAA217538F6007A0DCB /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3DE3CA7217535E0007A0DCB /* RxCocoa.framework */; };
+		E3DE3CAB217538F6007A0DCB /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E3DE3CA7217535E0007A0DCB /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E3DE3CAD217538F6007A0DCB /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E3DE3CA6217535E0007A0DCB /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E3E1A968208857DE004F477C /* TourViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E1A967208857DE004F477C /* TourViewModel.swift */; };
-		E3F67F352051E0D700A693E8 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F67F342051E0D700A693E8 /* UIExtensions.swift */; };
-		E3F67F372051E5DF00A693E8 /* ToursCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F67F362051E5DF00A693E8 /* ToursCalculator.swift */; };
+		E3F67F352051E0D700A693E8 /* ViewFromNibExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F67F342051E0D700A693E8 /* ViewFromNibExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,11 +53,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E3DE3CAE217538F6007A0DCB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E3DE3CAD217538F6007A0DCB /* RxSwift.framework in Embed Frameworks */,
+				E3DE3CAB217538F6007A0DCB /* RxCocoa.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		E3504509216D59AC00273E10 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		E35193B020AFCEDB006E1BD7 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		E35193B220AFCFC5006E1BD7 /* BookView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookView.xib; sourceTree = "<group>"; };
-		E35193B620B0C624006E1BD7 /* SelectedTour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTour.swift; sourceTree = "<group>"; };
 		E35501D42027C622009B175D /* AregakTours.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AregakTours.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E35501D72027C622009B175D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E35501D92027C622009B175D /* ToursViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursViewController.swift; sourceTree = "<group>"; };
@@ -80,9 +96,10 @@
 		E3B0B991204229AC00593790 /* tours.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tours.json; path = AregakTours/tours.json; sourceTree = SOURCE_ROOT; };
 		E3DE3CA121751C2D007A0DCB /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		E3DE3CA321751DA8007A0DCB /* ToursViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursViewModel.swift; sourceTree = "<group>"; };
+		E3DE3CA6217535E0007A0DCB /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		E3DE3CA7217535E0007A0DCB /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		E3E1A967208857DE004F477C /* TourViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViewModel.swift; sourceTree = "<group>"; };
-		E3F67F342051E0D700A693E8 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
-		E3F67F362051E5DF00A693E8 /* ToursCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursCalculator.swift; sourceTree = "<group>"; };
+		E3F67F342051E0D700A693E8 /* ViewFromNibExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFromNibExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3DE3CAA217538F6007A0DCB /* RxCocoa.framework in Frameworks */,
+				E3DE3CA8217535E0007A0DCB /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +156,7 @@
 				E35501EB2027C622009B175D /* AregakToursTests */,
 				E35501F62027C622009B175D /* AregakToursUITests */,
 				E35501D52027C622009B175D /* Products */,
+				E3DE3CA5217535E0007A0DCB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,7 +178,6 @@
 				E3F67F332051E0B100A693E8 /* Extensions */,
 				E398FDAF204B213C00CB95D3 /* DataModel */,
 				E398FDAE204B212800CB95D3 /* NetworkService */,
-				E3E1A96620885769004F477C /* Utils */,
 				E3DDAD912032778C00009689 /* Resources */,
 			);
 			path = AregakTours;
@@ -197,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				E398FDB0204B217200CB95D3 /* Tour.swift */,
-				E35193B620B0C624006E1BD7 /* SelectedTour.swift */,
 			);
 			path = DataModel;
 			sourceTree = "<group>";
@@ -215,6 +233,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		E3DE3CA5217535E0007A0DCB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3DE3CA7217535E0007A0DCB /* RxCocoa.framework */,
+				E3DE3CA6217535E0007A0DCB /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E3E1A9652088574C004F477C /* Tours */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,18 +253,10 @@
 			path = Tours;
 			sourceTree = "<group>";
 		};
-		E3E1A96620885769004F477C /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				E3F67F362051E5DF00A693E8 /* ToursCalculator.swift */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		E3F67F332051E0B100A693E8 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E3F67F342051E0D700A693E8 /* UIExtensions.swift */,
+				E3F67F342051E0D700A693E8 /* ViewFromNibExtension.swift */,
 				E3DE3CA121751C2D007A0DCB /* ArrayExtension.swift */,
 			);
 			path = Extensions;
@@ -253,6 +272,7 @@
 				E35501D02027C622009B175D /* Sources */,
 				E35501D12027C622009B175D /* Frameworks */,
 				E35501D22027C622009B175D /* Resources */,
+				E3DE3CAE217538F6007A0DCB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -388,13 +408,11 @@
 				E398FDBB204B2B0A00CB95D3 /* TourTableViewCell.swift in Sources */,
 				E3E1A968208857DE004F477C /* TourViewModel.swift in Sources */,
 				E350450A216D59AC00273E10 /* BookViewModel.swift in Sources */,
-				E3F67F372051E5DF00A693E8 /* ToursCalculator.swift in Sources */,
 				E35501D82027C622009B175D /* AppDelegate.swift in Sources */,
 				E3B0B99020421DA500593790 /* ToursPresenter.swift in Sources */,
 				E398FDB1204B217300CB95D3 /* Tour.swift in Sources */,
 				E35193B120AFCEDB006E1BD7 /* BookView.swift in Sources */,
-				E35193B720B0C624006E1BD7 /* SelectedTour.swift in Sources */,
-				E3F67F352051E0D700A693E8 /* UIExtensions.swift in Sources */,
+				E3F67F352051E0D700A693E8 /* ViewFromNibExtension.swift in Sources */,
 				E398FDB7204B219100CB95D3 /* NetworkService.swift in Sources */,
 				E398FDB6204B219100CB95D3 /* NetworkRequest.swift in Sources */,
 			);
@@ -564,6 +582,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3VLPF9L2MN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AregakTours/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = arevik.AregakTours;
@@ -579,6 +601,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3VLPF9L2MN;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = AregakTours/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = arevik.AregakTours;

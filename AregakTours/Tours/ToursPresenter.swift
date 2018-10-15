@@ -44,15 +44,11 @@ class ToursPresenter {
     
     if selectedTours.count > 0 {
 			let viewModel = BookViewModel()
+			viewModel.inputs.selectedTours(selectedTours)
       toursView?.displayBookView(viewModel)
     } else {
       toursView?.hideBookView()
     }
-  }
-  
-  func calculateTotalAmount(tours: [TourViewModel]) -> String {
-    let totalAmount = tours.reduce(0, { Int($0) + Int($1.transport)! })
-    return String(totalAmount)
   }
   
   func fetchTours() {
