@@ -1,11 +1,3 @@
-//
-//  TourTableViewCell.swift
-//  AregakTours
-//
-//  Created by toxicsun on 3/3/18.
-//  Copyright © 2018 Arevik Tunyan. All rights reserved.
-//
-
 import UIKit
 
 class TourTableViewCell: UITableViewCell {

@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  AregakTours
-//
-//  Created by toxicsun on 2/4/18.
-//  Copyright © 2018 Arevik Tunyan. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

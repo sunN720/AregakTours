@@ -1,11 +1,3 @@
-//
-//  TourViewModel.swift
-//  AregakTours
-//
-//  Created by toxicsun on 4/19/18.
-//  Copyright © 2018 Arevik Tunyan. All rights reserved.
-//
-
 import Foundation
 
 class TourViewModel {

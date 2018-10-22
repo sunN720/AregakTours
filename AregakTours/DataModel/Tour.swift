@@ -1,11 +1,3 @@
-//
-//  Tour.swift
-//  AregakTours
-//
-//  Created by toxicsun on 2/10/18.
-//  Copyright © 2018 Arevik Tunyan. All rights reserved.
-//
-
 import Foundation
 
 struct Tour: Codable {
@@ -16,4 +8,6 @@ struct Tour: Codable {
   var meal: String
   var description: String?
 }
+
+
 
