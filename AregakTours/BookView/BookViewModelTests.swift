@@ -32,6 +32,7 @@ class BookViewModelTests: XCTestCase {
     }
 
     override func tearDown() {
+        mockedTours.removeAll()
         sut = nil
         super.tearDown()
     }

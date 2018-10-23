@@ -5,7 +5,7 @@ protocol ToursView: class {
   func finishLoading()
   func setTours(_ tours: [TourViewModel])
   func updateViewFor(emptyState: Bool)
-	func displayBookView(_ viewModel: BookViewModeling)
+  func displayBookView(_ viewModel: BookViewModeling)
   func hideBookView()
 }
 
@@ -23,19 +23,24 @@ class ToursPresenter {
     fetchTours()
   }
   
-  func tourWasSelected(at indexPath: IndexPath) {
+  func didSelectTour(at indexPath: IndexPath) {
     let tour = toursViewModel[indexPath.row]
-    if tour.state == .regular {
+    
+    if selectedTours.contains(tour) {
+      tour.updateState(.regular)
+      selectedTours.removeObject(obj: tour)
+    } else {
       selectedTours.append(tour)
-      tour.state = .selected
-    } else if let index = selectedTours.index(of: tour) {
-        selectedTours.remove(at: index)
-        tour.state = .regular
+      tour.updateState(.selected)
     }
     
+    updateBookView()
+  }
+  
+  func updateBookView() {
     if selectedTours.count > 0 {
-			let viewModel = BookViewModel()
-			viewModel.inputs.selectedTours(selectedTours)
+      let viewModel = BookViewModel()
+      viewModel.inputs.selectedTours(selectedTours)
       toursView?.displayBookView(viewModel)
     } else {
       toursView?.hideBookView()

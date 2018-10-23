@@ -75,7 +75,10 @@ extension ToursViewController: UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    toursPresenter.tourWasSelected(at: indexPath)
+    toursPresenter.didSelectTour(at: indexPath)
+  }
+  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    toursPresenter.didSelectTour(at: indexPath)
   }
 }
 

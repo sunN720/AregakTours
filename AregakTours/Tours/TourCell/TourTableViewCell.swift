@@ -1,12 +1,7 @@
 import UIKit
+import RxSwift
 
 class TourTableViewCell: UITableViewCell {
-  
-  enum State {
-    case regular
-    case selected
-  }
-  
   @IBOutlet weak var titleLable: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var containerView: UIView!
@@ -16,21 +11,13 @@ class TourTableViewCell: UITableViewCell {
   @IBOutlet weak var mealButton: UIButton!
   @IBOutlet weak var dateField: UITextField!
   
-  var state: State = .regular
+  let disposeBag = DisposeBag()
   
   fileprivate lazy var datePicker: UIDatePicker = {
     let datePicker = UIDatePicker()
     datePicker.datePickerMode = .date
     return datePicker
   }()
-  
-  var cellSelected: Bool {
-    if case .selected = state {
-      return true
-    } else {
-      return false
-    }
-  }
   
   // MARK: -  public methods
   func setupCell(viewModel: TourViewModel) {
@@ -40,18 +27,22 @@ class TourTableViewCell: UITableViewCell {
     guideButton.setTitle("guide " + viewModel.guide, for: .normal)
     mealButton.setTitle("meal " + viewModel.meal, for: .normal)
     dateField.text = "Select the date"
+    
+    viewModel.selected
+      .subscribe( onNext: { [weak self] selected in
+        DispatchQueue.main.async {
+          self?.updateView(state: selected)
+        }
+      })
+      .disposed(by: disposeBag)
   }
   
-  override func setSelected(_ selected: Bool, animated: Bool) {
-  
-    if selected == true {
-      guard cellSelected == false else {
-        containerView.backgroundColor = .green
-        state = .regular
-        return
-      }
+  func updateView(state: State) {
+    switch state {
+    case .regular:
+      containerView.backgroundColor = .green
+    case .selected:
       containerView.backgroundColor = .red
-      state = .selected
     }
   }
 

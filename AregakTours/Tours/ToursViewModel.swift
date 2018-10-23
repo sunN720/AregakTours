@@ -7,6 +7,3 @@ protocol ToursViewModeling {
 	func hideBookView()
 }
 
-struct ToursViewModel {
-
-}
