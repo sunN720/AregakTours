@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 
-class TourTableViewCell: UITableViewCell {
+class TourCell: UITableViewCell {
   @IBOutlet weak var titleLable: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var containerView: UIView!
@@ -20,15 +20,15 @@ class TourTableViewCell: UITableViewCell {
   }()
   
   // MARK: -  public methods
-  func setupCell(viewModel: TourViewModel) {
-    titleLable.text = viewModel.name
-    descriptionLabel.text = viewModel.description
-    carButton.setTitle("transport " + viewModel.transport, for: .normal)
-    guideButton.setTitle("guide " + viewModel.guide, for: .normal)
-    mealButton.setTitle("meal " + viewModel.meal, for: .normal)
+  func setupCell(viewModel: TourViewModeling) {
+    titleLable.text = viewModel.outputs.name
+    descriptionLabel.text = viewModel.outputs.description
+    carButton.setTitle("transport " + viewModel.outputs.transport, for: .normal)
+    guideButton.setTitle("guide " + viewModel.outputs.guide, for: .normal)
+    mealButton.setTitle("meal " + viewModel.outputs.meal, for: .normal)
     dateField.text = "Select the date"
     
-    viewModel.selected
+    viewModel.outputs.selected
       .subscribe( onNext: { [weak self] selected in
         DispatchQueue.main.async {
           self?.updateView(state: selected)
@@ -49,7 +49,7 @@ class TourTableViewCell: UITableViewCell {
 }
 
 // MARK: -  private methods
-fileprivate extension TourTableViewCell {
+fileprivate extension TourCell {
   
   func openDatePicker() {
     
@@ -80,7 +80,7 @@ fileprivate extension TourTableViewCell {
 }
 
 // MARK: -  IBActions
-fileprivate extension TourTableViewCell {
+fileprivate extension TourCell {
   
   @IBAction func carTapped(_ sender: Any) {
     

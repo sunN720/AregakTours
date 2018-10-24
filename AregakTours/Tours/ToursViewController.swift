@@ -19,7 +19,7 @@ class ToursViewController: UIViewController {
     super.viewDidLoad()
     
     activityIndicator?.hidesWhenStopped = true
-    tableView?.register(UINib(nibName: "TourTableViewCell", bundle: nil), forCellReuseIdentifier: "TourTableViewCell")
+    tableView?.register(UINib(nibName: "TourCell", bundle: nil), forCellReuseIdentifier: "TourCell")
     toursPresenter.toursView = self
     toursPresenter.notifyViewDidLoad()
     hideTotalViewWithAnimation(false)
@@ -57,7 +57,7 @@ extension ToursViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "TourTableViewCell", for: indexPath) as! TourTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "TourCell", for: indexPath) as! TourCell
     let tourViewModel = toursToDisplay[indexPath.row]
     cell.setupCell(viewModel: tourViewModel)
     return cell
