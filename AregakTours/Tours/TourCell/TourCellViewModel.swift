@@ -9,9 +9,9 @@ enum State {
 
 protocol TourCellViewModelOutputs {
   var name: String { get }
-  var transport: String { get }
-  var guide: String { get }
-  var meal: String { get }
+  var transport: Price { get }
+  var guide: Price { get }
+  var meal: Price { get }
   var description: String? { get }
   var date: String { get }
   
@@ -40,25 +40,27 @@ struct TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCel
   
   let id: Int
   let name: String
-  let transport: String
-  let guide: String
-  let meal: String
+  let transport: Price
+  let guide: Price
+  let meal: Price
   let description: String?
   let date: String
   
-  init(tour: Tour) {
-    self.id = tour.id
-    self.name = tour.name.uppercased() + tour.transport
-    self.transport = tour.transport
-    self.guide = tour.guide
-    self.meal = tour.meal
-    self.description = tour.description
+  init(tourViewModel: TourViewModel) {
+    self.id = tourViewModel.id
+    self.name = tourViewModel.name.uppercased()
+    self.transport = tourViewModel.transport
+    self.guide = tourViewModel.guide
+    self.meal = tourViewModel.meal
+    self.description = tourViewModel.description
     self.date = ""
   }
   
   func updateState(_ state: State) {
     selectedInput.onNext(state)
   }
+  
+  
   
 }
 

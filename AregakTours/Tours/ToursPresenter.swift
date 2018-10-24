@@ -66,8 +66,10 @@ class ToursPresenter {
         return
       }
       
-      for tour in tours {
-        let cellViewModel = TourCellViewModel(tour: tour)
+      let tourViewModels = tours.map { TourViewModel(tour: $0) }
+      
+      for vm in tourViewModels {
+        let cellViewModel = TourCellViewModel(tourViewModel: vm)
         self.cellViewModels.append(cellViewModel)
       }
 

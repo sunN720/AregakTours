@@ -24,7 +24,7 @@ struct BookViewModel: BookViewModeling, BookViewModelOutputs, BookViewModelInput
 	}
 
 	func selectedTours(_ tours: [TourCellViewModel]) {
-		let total = "Total: \(tours.reduce(0, { Int($0) + Int($1.transport)! }))"
+		let total = "Total: \(tours.reduce(0, { ($0) + $1.transport.value }))"
 		totalAmountInput.onNext(total)
 	}
 }

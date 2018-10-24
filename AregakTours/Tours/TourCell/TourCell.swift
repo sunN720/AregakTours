@@ -23,9 +23,9 @@ class TourCell: UITableViewCell {
   func setupCell(viewModel: TourCellViewModeling) {
     titleLable.text = viewModel.outputs.name
     descriptionLabel.text = viewModel.outputs.description
-    carButton.setTitle("transport " + viewModel.outputs.transport, for: .normal)
-    guideButton.setTitle("guide " + viewModel.outputs.guide, for: .normal)
-    mealButton.setTitle("meal " + viewModel.outputs.meal, for: .normal)
+    carButton.setTitle("transport \(viewModel.outputs.transport.value)", for: .normal)
+    guideButton.setTitle("guide \(viewModel.outputs.guide.value)", for: .normal)
+    mealButton.setTitle("meal \(viewModel.outputs.meal.value)", for: .normal)
     dateField.text = "Select the date"
     
     viewModel.outputs.selected
