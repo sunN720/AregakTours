@@ -7,7 +7,7 @@ enum State {
 
 // SHOULD BE TourCellViewModel?
 
-protocol TourViewModelOutputs {
+protocol TourCellViewModelOutputs {
   var name: String { get }
   var transport: String { get }
   var guide: String { get }
@@ -18,20 +18,20 @@ protocol TourViewModelOutputs {
   var selected: Observable<State> { get }
 }
 
-protocol TourViewModelInputs {
+protocol TourCellViewModelInputs {
   func updateState(_ state: State)
 }
 
-protocol TourViewModeling {
-  var inputs: TourViewModelInputs { get }
-  var outputs: TourViewModelOutputs { get }
+protocol TourCellViewModeling {
+  var inputs: TourCellViewModelInputs { get }
+  var outputs: TourCellViewModelOutputs { get }
 }
 
 
-struct TourViewModel: TourViewModeling, TourViewModelInputs, TourViewModelOutputs {
+struct TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCellViewModelOutputs {
   
-  var inputs: TourViewModelInputs { return self }
-  var outputs: TourViewModelOutputs { return self }
+  var inputs: TourCellViewModelInputs { return self }
+  var outputs: TourCellViewModelOutputs { return self }
   
   private let selectedInput = BehaviorSubject<State>(value: .regular)
   var selected: Observable<State> {
@@ -62,8 +62,8 @@ struct TourViewModel: TourViewModeling, TourViewModelInputs, TourViewModelOutput
   
 }
 
-extension TourViewModel: Equatable {
-  static func == (l: TourViewModel, r: TourViewModel) -> Bool {
+extension TourCellViewModel: Equatable {
+  static func == (l: TourCellViewModel, r: TourCellViewModel) -> Bool {
     return l.id == r.id
   }
 }

@@ -5,7 +5,7 @@ protocol BookViewModelOutputs {
 }
 
 protocol BookViewModelInputs {
-	func selectedTours(_ tours: [TourViewModel])
+	func selectedTours(_ tours: [TourCellViewModel])
 }
 
 
@@ -23,7 +23,7 @@ struct BookViewModel: BookViewModeling, BookViewModelOutputs, BookViewModelInput
 		return totalAmountInput.asObservable()
 	}
 
-	func selectedTours(_ tours: [TourViewModel]) {
+	func selectedTours(_ tours: [TourCellViewModel]) {
 		let total = "Total: \(tours.reduce(0, { Int($0) + Int($1.transport)! }))"
 		totalAmountInput.onNext(total)
 	}

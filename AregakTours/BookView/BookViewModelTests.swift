@@ -5,7 +5,7 @@ import RxSwift
 class BookViewModelTests: XCTestCase {
     let disposeBag = DisposeBag()
     var sut: BookViewModel!
-    var mockedTours = [TourViewModel]()
+    var mockedTours = [TourCellViewModel]()
     
     override func setUp() {
         super.setUp()
@@ -27,8 +27,8 @@ class BookViewModelTests: XCTestCase {
                          guide: "2",
                          meal: "3",
                          description: nil)
-        mockedTours.append(TourViewModel(tour: mockedTour1))
-        mockedTours.append(TourViewModel(tour: mockedTour2))
+        mockedTours.append(TourCellViewModel(tour: mockedTour1))
+        mockedTours.append(TourCellViewModel(tour: mockedTour2))
     }
 
     override func tearDown() {

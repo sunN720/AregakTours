@@ -35,7 +35,7 @@
 		E3DE3CAA217538F6007A0DCB /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3DE3CA7217535E0007A0DCB /* RxCocoa.framework */; };
 		E3DE3CAB217538F6007A0DCB /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E3DE3CA7217535E0007A0DCB /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E3DE3CAD217538F6007A0DCB /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E3DE3CA6217535E0007A0DCB /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E3E1A968208857DE004F477C /* TourViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E1A967208857DE004F477C /* TourViewModel.swift */; };
+		E3E1A968208857DE004F477C /* TourCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E1A967208857DE004F477C /* TourCellViewModel.swift */; };
 		E3F67F352051E0D700A693E8 /* ViewFromNibExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F67F342051E0D700A693E8 /* ViewFromNibExtension.swift */; };
 /* End PBXBuildFile section */
 
@@ -103,7 +103,7 @@
 		E3DE3CA321751DA8007A0DCB /* ToursViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursViewModel.swift; sourceTree = "<group>"; };
 		E3DE3CA6217535E0007A0DCB /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		E3DE3CA7217535E0007A0DCB /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		E3E1A967208857DE004F477C /* TourViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViewModel.swift; sourceTree = "<group>"; };
+		E3E1A967208857DE004F477C /* TourCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCellViewModel.swift; sourceTree = "<group>"; };
 		E3F67F342051E0D700A693E8 /* ViewFromNibExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFromNibExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,7 +151,7 @@
 			children = (
 				E398FDBA204B2B0A00CB95D3 /* TourCell.swift */,
 				E398FDBC204B2B1800CB95D3 /* TourCell.xib */,
-				E3E1A967208857DE004F477C /* TourViewModel.swift */,
+				E3E1A967208857DE004F477C /* TourCellViewModel.swift */,
 				7661CC30218124BF00D4CE67 /* TourViewModelTests.swift */,
 			);
 			path = TourCell;
@@ -414,7 +414,7 @@
 				E35501DA2027C622009B175D /* ToursViewController.swift in Sources */,
 				E3DE3CA421751DA8007A0DCB /* ToursViewModel.swift in Sources */,
 				E398FDBB204B2B0A00CB95D3 /* TourCell.swift in Sources */,
-				E3E1A968208857DE004F477C /* TourViewModel.swift in Sources */,
+				E3E1A968208857DE004F477C /* TourCellViewModel.swift in Sources */,
 				E350450A216D59AC00273E10 /* BookViewModel.swift in Sources */,
 				E35501D82027C622009B175D /* AppDelegate.swift in Sources */,
 				E3B0B99020421DA500593790 /* ToursPresenter.swift in Sources */,

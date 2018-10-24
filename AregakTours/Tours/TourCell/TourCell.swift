@@ -20,7 +20,7 @@ class TourCell: UITableViewCell {
   }()
   
   // MARK: -  public methods
-  func setupCell(viewModel: TourViewModeling) {
+  func setupCell(viewModel: TourCellViewModeling) {
     titleLable.text = viewModel.outputs.name
     descriptionLabel.text = viewModel.outputs.description
     carButton.setTitle("transport " + viewModel.outputs.transport, for: .normal)

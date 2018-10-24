@@ -13,7 +13,7 @@ class ToursViewController: UIViewController {
   let bookViewAnimationDuration = 0.5
   
   fileprivate let toursPresenter = ToursPresenter(toursService: ToursInteractor(service: NetworkService()))
-  fileprivate var toursToDisplay = [TourViewModel]()
+  fileprivate var toursToDisplay = [TourCellViewModel]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -94,7 +94,7 @@ extension ToursViewController: ToursView {
     activityIndicator?.stopAnimating()
   }
   
-  func setTours(_ tours: [TourViewModel]) {
+  func setTours(_ tours: [TourCellViewModel]) {
     toursToDisplay = tours
     tableView?.reloadData()
   }

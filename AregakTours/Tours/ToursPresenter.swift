@@ -3,7 +3,7 @@ import Foundation
 protocol ToursView: class {
   func startLoading()
   func finishLoading()
-  func setTours(_ tours: [TourViewModel])
+  func setTours(_ tours: [TourCellViewModel])
   func updateViewFor(emptyState: Bool)
   func displayBookView(_ viewModel: BookViewModeling)
   func hideBookView()
@@ -12,8 +12,8 @@ protocol ToursView: class {
 class ToursPresenter {
   fileprivate let toursService: ToursInteractorAdaptor!
   weak var toursView : ToursView?
-  var toursViewModel = [TourViewModel]()
-  var selectedTours = [TourViewModel]()
+  var cellViewModels = [TourCellViewModel]()
+  var selectedTours = [TourCellViewModel]()
   
   init(toursService: ToursInteractorAdaptor){
     self.toursService = toursService
@@ -24,7 +24,7 @@ class ToursPresenter {
   }
   
   func didSelectTour(at indexPath: IndexPath) {
-    let tour = toursViewModel[indexPath.row]
+    let tour = cellViewModels[indexPath.row]
     
     if selectedTours.contains(tour) {
       tour.updateState(.regular)
@@ -39,9 +39,9 @@ class ToursPresenter {
   
   func updateBookView() {
     if selectedTours.count > 0 {
-      let viewModel = BookViewModel()
-      viewModel.inputs.selectedTours(selectedTours)
-      toursView?.displayBookView(viewModel)
+      let bookViewModel = BookViewModel()
+      bookViewModel.inputs.selectedTours(selectedTours)
+      toursView?.displayBookView(bookViewModel)
     } else {
       toursView?.hideBookView()
     }
@@ -67,11 +67,11 @@ class ToursPresenter {
       }
       
       for tour in tours {
-        let tourViewModel = TourViewModel(tour: tour)
-        self.toursViewModel.append(tourViewModel)
+        let cellViewModel = TourCellViewModel(tour: tour)
+        self.cellViewModels.append(cellViewModel)
       }
 
-      self.toursView?.setTours(self.toursViewModel)
+      self.toursView?.setTours(self.cellViewModels)
       self.toursView?.updateViewFor(emptyState: false)
     }
   }
