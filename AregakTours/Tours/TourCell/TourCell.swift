@@ -19,8 +19,11 @@ class TourCell: UITableViewCell {
     return datePicker
   }()
   
+  private var vm: TourCellViewModeling?
+  
   // MARK: -  public methods
   func setupCell(viewModel: TourCellViewModeling) {
+    vm = viewModel
     titleLable.text = viewModel.outputs.name
     descriptionLabel.text = viewModel.outputs.description
     carButton.setTitle("transport \(viewModel.outputs.transport.value)", for: .normal)
@@ -83,7 +86,7 @@ fileprivate extension TourCell {
 fileprivate extension TourCell {
   
   @IBAction func carTapped(_ sender: Any) {
-    
+    vm?.inputs.transportClicked()
   }
   
   @IBAction func guideTapped(_ sender: Any) {

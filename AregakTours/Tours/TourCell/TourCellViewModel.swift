@@ -20,6 +20,7 @@ protocol TourCellViewModelOutputs {
 
 protocol TourCellViewModelInputs {
   func updateState(_ state: State)
+  func transportClicked()
 }
 
 protocol TourCellViewModeling {
@@ -28,7 +29,7 @@ protocol TourCellViewModeling {
 }
 
 
-struct TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCellViewModelOutputs {
+class TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCellViewModelOutputs {
   
   var inputs: TourCellViewModelInputs { return self }
   var outputs: TourCellViewModelOutputs { return self }
@@ -40,7 +41,7 @@ struct TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCel
   
   let id: Int
   let name: String
-  let transport: Price
+  private(set) var transport: Price
   let guide: Price
   let meal: Price
   let description: String?
@@ -58,6 +59,15 @@ struct TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCel
   
   func updateState(_ state: State) {
     selectedInput.onNext(state)
+  }
+  
+  func transportClicked() {
+    switch transport.state { // TODO make state with Result e.g. Price(value: , state: !transport.state
+    case .selected:
+      transport = Price(value: transport.value, state: Price.State.notSelected)
+    case .notSelected:
+      transport = Price(value: transport.value, state: Price.State.selected)
+    }
   }
   
   

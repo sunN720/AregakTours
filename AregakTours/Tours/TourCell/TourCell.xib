@@ -46,6 +46,9 @@
                                 <state key="normal" title="Transport">
                                     <color key="titleColor" red="0.97654226040000003" green="0.97654226040000003" blue="0.97654226040000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="carTapped:" destination="3XB-D5-PbQ" eventType="touchUpInside" id="Ntg-jX-6Kl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9te-dC-pKf">
                                 <rect key="frame" x="8" y="108.5" width="327" height="32"/>
