@@ -5,54 +5,23 @@ class TourCell: UITableViewCell {
   @IBOutlet weak var titleLable: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var containerView: UIView!
+  @IBOutlet weak var pricesView: PricesView!
   
-  @IBOutlet weak var carButton: UIButton!
-  @IBOutlet weak var guideButton: UIButton!
-  @IBOutlet weak var mealButton: UIButton!
-  @IBOutlet weak var dateField: UITextField!
-  
-  let disposeBag = DisposeBag()
-  
-  fileprivate lazy var datePicker: UIDatePicker = {
-    let datePicker = UIDatePicker()
-    datePicker.datePickerMode = .date
-    return datePicker
-  }()
-  
-  private var vm: TourCellViewModeling?
-  
-  // MARK: -  public methods
   func setupCell(viewModel: TourCellViewModeling) {
-    vm = viewModel
     titleLable.text = viewModel.outputs.name
     descriptionLabel.text = viewModel.outputs.description
-    carButton.setTitle("transport \(viewModel.outputs.transport.value)", for: .normal)
-    guideButton.setTitle("guide \(viewModel.outputs.guide.value)", for: .normal)
-    mealButton.setTitle("meal \(viewModel.outputs.meal.value)", for: .normal)
-    dateField.text = "Select the date"
-    
-    viewModel.outputs.selected
-      .subscribe( onNext: { [weak self] selected in
-        DispatchQueue.main.async {
-          self?.updateView(state: selected)
-        }
-      })
-      .disposed(by: disposeBag)
+    pricesView.setup(viewModel: viewModel.outputs.priceVM)
   }
-  
-  func updateView(state: State) {
-    switch state {
-    case .regular:
-      containerView.backgroundColor = .green
-    case .selected:
-      containerView.backgroundColor = .red
-    }
-  }
-
 }
 
 // MARK: -  private methods
-fileprivate extension TourCell {
+/*fileprivate extension TourCell {
+ 
+ fileprivate lazy var datePicker: UIDatePicker = {
+ let datePicker = UIDatePicker()
+ datePicker.datePickerMode = .date
+ return datePicker
+ }()
   
   func openDatePicker() {
     
@@ -80,24 +49,4 @@ fileprivate extension TourCell {
     self.endEditing(true)
   }
   
-}
-
-// MARK: -  IBActions
-fileprivate extension TourCell {
-  
-  @IBAction func carTapped(_ sender: Any) {
-    vm?.inputs.transportClicked()
-  }
-  
-  @IBAction func guideTapped(_ sender: Any) {
-    
-  }
-  
-  @IBAction func mealTapped(_ sender: Any) {
-    
-  }
-  
-  @IBAction func dateTapped(_ sender: Any) {
-    openDatePicker()
-  }
-}
+}*/

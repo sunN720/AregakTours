@@ -1,3 +1,4 @@
+import RxSwift
 import Foundation
 
 protocol ToursView: class {
@@ -14,6 +15,8 @@ class ToursPresenter {
   weak var toursView : ToursView?
   var cellViewModels = [TourCellViewModel]()
   var selectedTours = [TourCellViewModel]()
+  
+  private var disposeBag = DisposeBag()
   
   init(toursService: ToursInteractorAdaptor){
     self.toursService = toursService
@@ -34,18 +37,20 @@ class ToursPresenter {
       tour.updateState(.selected)
     }
     
-    updateBookView()
+    //updateBookView()
   }
   
-  func updateBookView() {
-    if selectedTours.count > 0 {
+  
+  func updateBookView(value: String?) {
+    if let totalValue = value {
       let bookViewModel = BookViewModel()
-      bookViewModel.inputs.selectedTours(selectedTours)
+      bookViewModel.inputs.udpateView(with: totalValue)
       toursView?.displayBookView(bookViewModel)
     } else {
       toursView?.hideBookView()
     }
   }
+  
   
   func fetchTours() {
     self.toursView?.startLoading()
@@ -70,6 +75,11 @@ class ToursPresenter {
       
       for vm in tourViewModels {
         let cellViewModel = TourCellViewModel(tourViewModel: vm)
+        cellViewModel.outputs.priceUpdate
+          .subscribe( onNext: { [weak self] value in
+            self?.updateBookView(value: value)
+            })
+          .disposed(by: self.disposeBag)
         self.cellViewModels.append(cellViewModel)
       }
 

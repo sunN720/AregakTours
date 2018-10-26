@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PricesView" customModule="AregakTours" customModuleProvider="target">
+            <connections>
+                <outletCollection property="priceButtons" destination="KiT-Vp-FId" collectionClass="NSMutableArray" id="VFM-VH-9RP"/>
+                <outletCollection property="priceButtons" destination="nzG-wb-GVJ" collectionClass="NSMutableArray" id="Tlj-uU-qON"/>
+                <outletCollection property="priceButtons" destination="wg1-fI-0ac" collectionClass="NSMutableArray" id="QwK-oU-sbm"/>
+                <outletCollection property="priceButtons" destination="0at-Zf-OeO" collectionClass="NSMutableArray" id="rUR-DS-31t"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="AGt-gu-jtr">
+                    <rect key="frame" x="0.0" y="0.0" width="378" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiT-Vp-FId">
+                            <rect key="frame" x="0.0" y="0.0" width="92.5" height="50"/>
+                            <color key="backgroundColor" red="0.28519701959999999" green="0.5652202368" blue="0.27250269059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="Car">
+                                <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="buttonCLicked:" destination="-1" eventType="touchUpInside" id="hQI-P3-F7K"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzG-wb-GVJ">
+                            <rect key="frame" x="95.5" y="0.0" width="92" height="50"/>
+                            <color key="backgroundColor" red="0.28519701959999999" green="0.5652202368" blue="0.27250269059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="Guide">
+                                <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="buttonCLicked:" destination="-1" eventType="touchUpInside" id="gYj-Vq-EeO"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wg1-fI-0ac">
+                            <rect key="frame" x="190.5" y="0.0" width="92.5" height="50"/>
+                            <color key="backgroundColor" red="0.28519701959999999" green="0.5652202368" blue="0.27250269059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="Meal">
+                                <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="buttonCLicked:" destination="-1" eventType="touchUpInside" id="tAI-ZZ-2kf"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0at-Zf-OeO">
+                            <rect key="frame" x="286" y="0.0" width="92" height="50"/>
+                            <color key="backgroundColor" red="0.28519701959999999" green="0.5652202368" blue="0.27250269059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <state key="normal" title="Date">
+                                <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="buttonCLicked:" destination="-1" eventType="touchUpInside" id="7Tk-ad-6Nt"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="AGt-gu-jtr" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="95j-lT-Sz5"/>
+                <constraint firstItem="AGt-gu-jtr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="AIp-IU-kLi"/>
+                <constraint firstItem="AGt-gu-jtr" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" constant="3" id="JXG-uI-oIk"/>
+                <constraint firstItem="AGt-gu-jtr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="V5B-bW-2bA"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="53.600000000000001" y="59.370314842578715"/>
+        </view>
+    </objects>
+</document>

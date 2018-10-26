@@ -36,4 +36,6 @@ struct Price {
     self.state = state
   }
   
+  static let defaultPrice = Price(value: 0.00, state: .notSelected)
+  
 }

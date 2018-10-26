@@ -9,18 +9,14 @@ enum State {
 
 protocol TourCellViewModelOutputs {
   var name: String { get }
-  var transport: Price { get }
-  var guide: Price { get }
-  var meal: Price { get }
   var description: String? { get }
-  var date: String { get }
-  
+  var priceVM: PricesViewModel { get }
   var selected: Observable<State> { get }
+  var priceUpdate: Observable<String?> { get }
 }
 
 protocol TourCellViewModelInputs {
   func updateState(_ state: State)
-  func transportClicked()
 }
 
 protocol TourCellViewModeling {
@@ -39,38 +35,55 @@ class TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCell
     return selectedInput.asObservable()
   }
   
+  private let priceUpdateInput = BehaviorSubject<String?>(value: nil)
+  var priceUpdate: Observable<String?> {
+    return priceUpdateInput.asObservable()
+  }
+  
   let id: Int
   let name: String
-  private(set) var transport: Price
-  let guide: Price
-  let meal: Price
+  let priceVM: PricesViewModel
   let description: String?
-  let date: String
+  
+  private let disposeBag = DisposeBag()
   
   init(tourViewModel: TourViewModel) {
     self.id = tourViewModel.id
     self.name = tourViewModel.name.uppercased()
-    self.transport = tourViewModel.transport
-    self.guide = tourViewModel.guide
-    self.meal = tourViewModel.meal
     self.description = tourViewModel.description
-    self.date = ""
+    self.priceVM = PricesViewModel(transport: tourViewModel.transport,
+                                   guide: tourViewModel.guide,
+                                   meal: tourViewModel.meal)
+    bindPriceVM()
   }
   
   func updateState(_ state: State) {
     selectedInput.onNext(state)
   }
   
-  func transportClicked() {
-    switch transport.state { // TODO make state with Result e.g. Price(value: , state: !transport.state
+  private var tourTotoal: Double = 0
+  func calculateTotalPrice(_ price: Price) {
+    switch price.state {
     case .selected:
-      transport = Price(value: transport.value, state: Price.State.notSelected)
+      tourTotoal += price.value
     case .notSelected:
-      transport = Price(value: transport.value, state: Price.State.selected)
+      tourTotoal -= price.value
+    }
+    
+    if tourTotoal > 0 {
+      priceUpdateInput.onNext("\(tourTotoal)")
+    } else {
+      priceUpdateInput.onNext(nil)
     }
   }
   
-  
+  func bindPriceVM() {
+    priceVM.priceValueUpdated
+      .subscribe( onNext: { price in
+        self.calculateTotalPrice(price)
+      })
+      .disposed(by: disposeBag)
+  }
   
 }
 
