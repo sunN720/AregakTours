@@ -26,21 +26,6 @@ class ToursPresenter {
     fetchTours()
   }
   
-  func didSelectTour(at indexPath: IndexPath) {
-    let tour = cellViewModels[indexPath.row]
-    
-    if selectedTours.contains(tour) {
-      tour.updateState(.regular)
-      selectedTours.removeObject(obj: tour)
-    } else {
-      selectedTours.append(tour)
-      tour.updateState(.selected)
-    }
-    
-    //updateBookView()
-  }
-  
-  
   func updateBookView(value: String?) {
     if let totalValue = value {
       let bookViewModel = BookViewModel()

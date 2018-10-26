@@ -73,13 +73,6 @@ extension ToursViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
     return 92.0
   }
-  
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    toursPresenter.didSelectTour(at: indexPath)
-  }
-  func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-    toursPresenter.didSelectTour(at: indexPath)
-  }
 }
 
 

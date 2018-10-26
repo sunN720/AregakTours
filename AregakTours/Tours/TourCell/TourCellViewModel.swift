@@ -11,12 +11,10 @@ protocol TourCellViewModelOutputs {
   var name: String { get }
   var description: String? { get }
   var priceVM: PricesViewModel { get }
-  var selected: Observable<State> { get }
   var priceUpdate: Observable<String?> { get }
 }
 
 protocol TourCellViewModelInputs {
-  func updateState(_ state: State)
 }
 
 protocol TourCellViewModeling {
@@ -42,9 +40,9 @@ class TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCell
   
   let id: Int
   let name: String
-  let priceVM: PricesViewModel
   let description: String?
-  
+  let priceVM: PricesViewModel
+
   private let disposeBag = DisposeBag()
   
   init(tourViewModel: TourViewModel) {
@@ -55,10 +53,6 @@ class TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCell
                                    guide: tourViewModel.guide,
                                    meal: tourViewModel.meal)
     bindPriceVM()
-  }
-  
-  func updateState(_ state: State) {
-    selectedInput.onNext(state)
   }
   
   private var tourTotoal: Double = 0
