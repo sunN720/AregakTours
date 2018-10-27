@@ -11,7 +11,7 @@ protocol TourCellViewModelOutputs {
   var name: String { get }
   var description: String? { get }
   var priceVM: PricesViewModel { get }
-  var priceUpdate: Observable<String?> { get }
+  var priceUpdate: Observable<Double> { get }
 }
 
 protocol TourCellViewModelInputs {
@@ -33,8 +33,8 @@ class TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCell
     return selectedInput.asObservable()
   }
   
-  private let priceUpdateInput = BehaviorSubject<String?>(value: nil)
-  var priceUpdate: Observable<String?> {
+  private let priceUpdateInput = BehaviorSubject<Double>(value: 0)
+  var priceUpdate: Observable<Double> {
     return priceUpdateInput.asObservable()
   }
   
@@ -45,17 +45,16 @@ class TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCell
 
   private let disposeBag = DisposeBag()
   
-  init(tourViewModel: TourViewModel) {
+  init(tourViewModel: TourViewModel, priceViewModel: PricesViewModel) {
     self.id = tourViewModel.id
     self.name = tourViewModel.name.uppercased()
     self.description = tourViewModel.description
-    self.priceVM = PricesViewModel(transport: tourViewModel.transport,
-                                   guide: tourViewModel.guide,
-                                   meal: tourViewModel.meal)
+    self.priceVM = priceViewModel
     bindPriceVM()
   }
   
-  private var tourTotoal: Double = 0
+  private(set) var tourTotoal: Double = 0
+  
   func calculateTotalPrice(_ price: Price) {
     switch price.state {
     case .selected:
@@ -64,11 +63,7 @@ class TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCell
       tourTotoal -= price.value
     }
     
-    if tourTotoal > 0 {
-      priceUpdateInput.onNext("\(tourTotoal)")
-    } else {
-      priceUpdateInput.onNext(nil)
-    }
+    priceUpdateInput.onNext(tourTotoal)
   }
   
   func bindPriceVM() {
@@ -79,10 +74,4 @@ class TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCell
       .disposed(by: disposeBag)
   }
   
-}
-
-extension TourCellViewModel: Equatable {
-  static func == (l: TourCellViewModel, r: TourCellViewModel) -> Bool {
-    return l.id == r.id
-  }
 }

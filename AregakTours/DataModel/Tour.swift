@@ -3,9 +3,9 @@ import Foundation
 struct Tour: Codable {
   var id: Int
   var name: String
-  var transport: String
-  var guide: String
-  var meal: String
+  var transport: Double
+  var guide: Double
+  var meal: Double
   var description: String?
 }
 

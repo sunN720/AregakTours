@@ -11,10 +11,10 @@ struct TourViewModel {
   
   init(tour: Tour) {
     self.id = tour.id
-    self.name = tour.name.uppercased() + tour.transport
-    self.transport = Price(value: Double(tour.transport)!, state: Price.State.notSelected)
-    self.guide = Price(value: Double(tour.guide)!, state: Price.State.notSelected)
-    self.meal = Price(value: Double(tour.meal)!, state: Price.State.notSelected)
+    self.name = tour.name.uppercased() + "\(tour.transport)"
+    self.transport = Price(value: tour.transport, state: Price.State.notSelected)
+    self.guide = Price(value: tour.guide, state: Price.State.notSelected)
+    self.meal = Price(value: tour.meal, state: Price.State.notSelected)
     self.description = tour.description
     self.date = ""
   }
@@ -34,6 +34,14 @@ struct Price {
   init(value: Double, state: State) {
     self.value = value
     self.state = state
+  }
+  
+  static func boolFromState(_ state: State) -> Bool {
+    return state == .selected ? true : false
+  }
+  
+  static func stateFromBool(_ bool: Bool) -> State {
+    return bool ? .selected : .notSelected
   }
   
   static let defaultPrice = Price(value: 0.00, state: .notSelected)

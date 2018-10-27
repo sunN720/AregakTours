@@ -26,10 +26,10 @@ class ToursPresenter {
     fetchTours()
   }
   
-  func updateBookView(value: String?) {
-    if let totalValue = value {
+  func updateBookView(value: Double) {
+    if value > 0 {
       let bookViewModel = BookViewModel()
-      bookViewModel.inputs.udpateView(with: totalValue)
+      bookViewModel.inputs.udpateView(with: value)
       toursView?.displayBookView(bookViewModel)
     } else {
       toursView?.hideBookView()
@@ -58,8 +58,12 @@ class ToursPresenter {
       
       let tourViewModels = tours.map { TourViewModel(tour: $0) }
       
-      for vm in tourViewModels {
-        let cellViewModel = TourCellViewModel(tourViewModel: vm)
+      for tourVM in tourViewModels {
+       let priceVM = PricesViewModel(transport: tourVM.transport,
+                                     guide: tourVM.guide,
+                                     meal: tourVM.meal)
+        let cellViewModel = TourCellViewModel(tourViewModel: tourVM,
+                                              priceViewModel: priceVM)
         cellViewModel.outputs.priceUpdate
           .subscribe( onNext: { [weak self] value in
             self?.updateBookView(value: value)

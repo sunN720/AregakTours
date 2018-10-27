@@ -5,7 +5,7 @@ protocol BookViewModelOutputs {
 }
 
 protocol BookViewModelInputs {
-  func udpateView(with value: String)
+  func udpateView(with value: Double)
 }
 
 
@@ -23,8 +23,8 @@ struct BookViewModel: BookViewModeling, BookViewModelOutputs, BookViewModelInput
     return totalAmountInput.asObservable()
   }
   
-  func udpateView(with value: String) {
-    totalAmountInput.onNext(value)
+  func udpateView(with value: Double) {
+    totalAmountInput.onNext("TOTAL: \(value)")
   }
   
 }

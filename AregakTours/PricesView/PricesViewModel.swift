@@ -10,7 +10,6 @@ protocol PricesViewModelOutputs {
   var meal: Price { get }
   
   var priceValueUpdated: Observable<Price> { get }
-  
 }
 
 protocol PricesViewModeling {
@@ -32,7 +31,6 @@ class PricesViewModel: PricesViewModeling, PricesViewModelInputs, PricesViewMode
     return priceValueUpdatedInput.asObservable()
   }
   
-  
   init(transport: Price,
        guide: Price,
        meal: Price) {
@@ -42,51 +40,22 @@ class PricesViewModel: PricesViewModeling, PricesViewModelInputs, PricesViewMode
   }
   
   func clickedButton(at index: Int) {
+    
     switch index {
     case 0:
-      transportClicked()
+      transport = Price(value: transport.value, state: Price.stateFromBool(!Price.boolFromState(transport.state)))
+       priceValueUpdatedInput.onNext(transport)
     case 1:
-      guideClicked()
+      guide = Price(value: guide.value, state: Price.stateFromBool(!Price.boolFromState(guide.state)))
+      priceValueUpdatedInput.onNext(guide)
     case 2:
-      mealClicked()
+      meal = Price(value: meal.value, state: Price.stateFromBool(!Price.boolFromState(meal.state)))
+      priceValueUpdatedInput.onNext(meal)
     case 4:
       print("Date clicked")
     default:
       break
     }
+   
   }
-  
-  func transportClicked() {
-    switch transport.state { // TODO make state with Result e.g. Price(value: , state: !transport.state
-    case .selected:
-      transport = Price(value: transport.value, state: Price.State.notSelected)
-    case .notSelected:
-      transport = Price(value: transport.value, state: Price.State.selected)
-    }
-    
-    priceValueUpdatedInput.onNext(transport)
-  }
-  
-  func guideClicked() {
-    switch guide.state { // TODO make state with Result e.g. Price(value: , state: !transport.state
-    case .selected:
-      guide = Price(value: guide.value, state: Price.State.notSelected)
-    case .notSelected:
-      guide = Price(value: guide.value, state: Price.State.selected)
-    }
-    
-    priceValueUpdatedInput.onNext(guide)
-  }
-  
-  func mealClicked() {
-    switch meal.state { // TODO make state with Result e.g. Price(value: , state: !transport.state
-    case .selected:
-      meal = Price(value: meal.value, state: Price.State.notSelected)
-    case .notSelected:
-      meal = Price(value: meal.value, state: Price.State.selected)
-    }
-    
-    priceValueUpdatedInput.onNext(meal)
-  }
-  
 }
