@@ -13,10 +13,9 @@ protocol ToursView: class {
 class ToursPresenter {
   fileprivate let toursService: ToursInteractorAdaptor!
   weak var toursView : ToursView?
-  var cellViewModels = [TourCellViewModel]()
-  var selectedTours = [TourCellViewModel]()
+  private(set) var selectedTours = [TourViewModel]()
   
-  private var disposeBag = DisposeBag()
+  private let disposeBag = DisposeBag()
   
   init(toursService: ToursInteractorAdaptor){
     self.toursService = toursService
@@ -26,18 +25,9 @@ class ToursPresenter {
     fetchTours()
   }
   
-  private(set) var toursTotoal: Double = 0
-  
-  func calculateTotalPrice(_ price: Price) {
-    switch price.state {
-    case .selected:
-      toursTotoal += price.value
-    case .notSelected:
-      toursTotoal -= price.value
-    }
-    
+  func calculateTotalPrice() {
+    let toursTotoal = selectedTours.reduce(0) { $0 + $1.tourTotalPrice }
     updateBookView(value: toursTotoal)
-    
   }
   
   func updateBookView(value: Double) {
@@ -45,6 +35,14 @@ class ToursPresenter {
       let bookViewModel = BookViewModel()
       bookViewModel.inputs.udpateView(with: value)
       toursView?.displayBookView(bookViewModel)
+      
+      bookViewModel.outputs.bookClicked
+        .subscribe(onNext: { [weak self] clicked in
+          if clicked {
+            dump(self?.selectedTours)
+          }
+        })
+        .disposed(by: disposeBag)
     } else {
       toursView?.hideBookView()
     }
@@ -71,20 +69,36 @@ class ToursPresenter {
       }
       
       let tourViewModels = tours.map { TourViewModel(tour: $0) }
-      
-      for vm in tourViewModels {
-        let cellViewModel = TourCellViewModel(tourViewModel: vm)
-        cellViewModel.outputs.priceUpdate
-          .subscribe( onNext: { [weak self] price in
-            self?.calculateTotalPrice(price)
-            })
-          .disposed(by: self.disposeBag)
-        self.cellViewModels.append(cellViewModel)
-      }
-
-      self.toursView?.setTours(self.cellViewModels)
+      self.toursView?.setTours(self.createCellViewModels(tourViewModels))
       self.toursView?.updateViewFor(emptyState: false)
     }
   }
+  
+  
+  func createCellViewModels(_ viewModels: [TourViewModel]) -> [TourCellViewModel] {
+    var cellViewModels = [TourCellViewModel]()
+    for vm in viewModels {
+      let cellVM = TourCellViewModel(tourVM: vm)
+      cellVM.outputs.priceUpdate
+        .subscribe( onNext: { [weak self] tourVM in
+          guard let tourVM = tourVM else { return }
+          self?.updateSelectedTours(tourVM)
+        })
+        .disposed(by: self.disposeBag)
+      cellViewModels.append(cellVM)
+    }
+    
+    return cellViewModels
+  }
+  
+  func updateSelectedTours(_ tourViewModel: TourViewModel) {
+    if let vmIndex = selectedTours.index(of: tourViewModel) {
+      selectedTours[vmIndex] = tourViewModel
+    } else {
+      selectedTours.append(tourViewModel)
+    }
+    
+    calculateTotalPrice()
+  }
+  
 }
-

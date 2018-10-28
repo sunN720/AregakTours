@@ -23,7 +23,7 @@ class TourCellViewModelTests: XCTestCase {
     meal = tourVM.meal
     guide = tourVM.guide
     
-    sut = TourCellViewModel(tourViewModel: tourVM)
+    sut = TourCellViewModel(tourVM: tourVM)
   }
   
   override func tearDown() {

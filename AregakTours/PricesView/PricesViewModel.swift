@@ -8,8 +8,7 @@ protocol PricesViewModelOutputs {
   var transport: Price { get }
   var guide: Price { get }
   var meal: Price { get }
-  var updateButtonState: Observable<Bool> { get }
-  var priceValueUpdated: Observable<Price> { get }
+  var tourPriceUpdated: Observable<TourViewModel?> { get }
 }
 
 protocol PricesViewModeling {
@@ -22,48 +21,40 @@ class PricesViewModel: PricesViewModeling, PricesViewModelInputs, PricesViewMode
   var inputs: PricesViewModelInputs { return self }
   var outputs: PricesViewModelOutputs { return self }
   
-  private(set) var transport: Price
-  private(set) var guide: Price
-  private(set) var meal: Price
-  
-  private let priceValueUpdatedInput = BehaviorSubject<Price>(value: .defaultPrice)
-  var priceValueUpdated: Observable<Price> {
-    return priceValueUpdatedInput.asObservable()
+  var transport: Price {
+    return vm.transport
+  }
+  var guide: Price {
+    return vm.guide
+  }
+  var meal: Price {
+    return vm.meal
   }
   
-  private let updateButtonStateInput = BehaviorSubject<Bool>(value: false)
-  var updateButtonState: Observable<Bool> {
-    return updateButtonStateInput.asObservable()
+  private let tourPriceUpdatedInput = BehaviorSubject<TourViewModel?>(value: nil)
+  var tourPriceUpdated: Observable<TourViewModel?> {
+    return tourPriceUpdatedInput.asObservable()
   }
   
-  init(transport: Price,
-       guide: Price,
-       meal: Price) {
-    self.transport = transport
-    self.guide = guide
-    self.meal = meal
+  private(set) var vm: TourViewModel
+  
+  init(tourVM: TourViewModel) {
+    self.vm = tourVM
   }
   
   func clickedButton(at index: Int) {
-    
     switch index {
     case 0:
-      transport = Price(value: transport.value, state: Price.stateFromBool(!Price.boolFromState(transport.state)))
-      priceValueUpdatedInput.onNext(transport)
-      updateButtonStateInput.onNext(transport.boolFormState())
+      vm.transport.state = (vm.transport.state == .selected) ? .notSelected : .selected
     case 1:
-      guide = Price(value: guide.value, state: Price.stateFromBool(!Price.boolFromState(guide.state)))
-      priceValueUpdatedInput.onNext(guide)
-      updateButtonStateInput.onNext(guide.boolFormState())
+      vm.guide.state = (vm.guide.state == .selected) ? .notSelected : .selected
     case 2:
-      meal = Price(value: meal.value, state: Price.stateFromBool(!Price.boolFromState(meal.state)))
-      priceValueUpdatedInput.onNext(meal)
-      updateButtonStateInput.onNext(meal.boolFormState())
+      vm.meal.state = (vm.meal.state == .selected) ? .notSelected : .selected
     case 4:
       print("Date clicked")
     default:
       break
     }
-    
+    tourPriceUpdatedInput.onNext(vm)
   }
 }

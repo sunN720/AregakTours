@@ -5,9 +5,7 @@ import RxSwift
 class PricesView: UIView {
   
   @IBOutlet var priceButtons: [UIButton]!
-  private(set) var vm: PricesViewModeling = PricesViewModel(transport: .defaultPrice,
-                                                            guide: .defaultPrice,
-                                                            meal: .defaultPrice)
+  private(set) var vm: PricesViewModeling?
   let disposeBag = DisposeBag()
 
   required init?(coder aDecoder: NSCoder) {
@@ -21,15 +19,16 @@ class PricesView: UIView {
   }
   
   private func bindViewModel() {
-    priceButtons[0].setTitle("\(vm.outputs.transport.value)", for: .normal)
-    priceButtons[1].setTitle("\(vm.outputs.guide.value)", for: .normal)
-    priceButtons[2].setTitle("\(vm.outputs.meal.value)", for: .normal)
+
+    priceButtons[0].setTitle("\(vm?.outputs.transport.value ?? 0.0)", for: .normal)
+    priceButtons[1].setTitle("\(vm?.outputs.guide.value ?? 0.0)", for: .normal)
+    priceButtons[2].setTitle("\(vm?.outputs.meal.value ?? 0.0)", for: .normal)
   }
   
   @IBAction func buttonCLicked(_ sender: UIButton) {
     let selected = priceButtons[sender.tag].isSelected
     priceButtons[sender.tag].isSelected = !selected
-    vm.inputs.clickedButton(at: sender.tag)
+    vm?.inputs.clickedButton(at: sender.tag)
   }
 
 }

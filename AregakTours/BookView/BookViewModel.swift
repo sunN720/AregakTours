@@ -2,10 +2,12 @@ import RxSwift
 
 protocol BookViewModelOutputs {
   var totalAmount: Observable<String> { get }
+  var bookClicked: Observable<Bool> { get }
 }
 
 protocol BookViewModelInputs {
   func udpateView(with value: Double)
+  func handleBookClick()
 }
 
 
@@ -18,13 +20,22 @@ struct BookViewModel: BookViewModeling, BookViewModelOutputs, BookViewModelInput
   var outputs: BookViewModelOutputs { return self }
   var inputs: BookViewModelInputs { return self }
   
-  private let totalAmountInput = BehaviorSubject<String>(value:"")
+  private let totalAmountInput = BehaviorSubject<String>(value: "")
   var totalAmount: Observable<String> {
     return totalAmountInput.asObservable()
   }
   
+  private let bookClickedInput = BehaviorSubject<Bool>(value: false)
+  var bookClicked: Observable<Bool> {
+    return bookClickedInput
+  }
+  
   func udpateView(with value: Double) {
     totalAmountInput.onNext("TOTAL: \(value)")
+  }
+  
+  func handleBookClick() {
+    bookClickedInput.onNext(true)
   }
   
 }
