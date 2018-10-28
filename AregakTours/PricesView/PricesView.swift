@@ -27,7 +27,9 @@ class PricesView: UIView {
   }
   
   @IBAction func buttonCLicked(_ sender: UIButton) {
+    let selected = priceButtons[sender.tag].isSelected
+    priceButtons[sender.tag].isSelected = !selected
     vm.inputs.clickedButton(at: sender.tag)
   }
-  
+
 }

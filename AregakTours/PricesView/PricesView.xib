@@ -26,10 +26,9 @@
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="AGt-gu-jtr">
                     <rect key="frame" x="0.0" y="0.0" width="378" height="50"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiT-Vp-FId">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiT-Vp-FId">
                             <rect key="frame" x="0.0" y="0.0" width="92.5" height="50"/>
                             <color key="backgroundColor" red="0.28519701959999999" green="0.5652202368" blue="0.27250269059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <state key="normal" title="Car">
                                 <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -37,10 +36,9 @@
                                 <action selector="buttonCLicked:" destination="-1" eventType="touchUpInside" id="hQI-P3-F7K"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzG-wb-GVJ">
+                        <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzG-wb-GVJ">
                             <rect key="frame" x="95.5" y="0.0" width="92" height="50"/>
                             <color key="backgroundColor" red="0.28519701959999999" green="0.5652202368" blue="0.27250269059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="Guide">
                                 <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -48,10 +46,9 @@
                                 <action selector="buttonCLicked:" destination="-1" eventType="touchUpInside" id="gYj-Vq-EeO"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wg1-fI-0ac">
+                        <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wg1-fI-0ac">
                             <rect key="frame" x="190.5" y="0.0" width="92.5" height="50"/>
                             <color key="backgroundColor" red="0.28519701959999999" green="0.5652202368" blue="0.27250269059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="Meal">
                                 <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
@@ -59,10 +56,9 @@
                                 <action selector="buttonCLicked:" destination="-1" eventType="touchUpInside" id="tAI-ZZ-2kf"/>
                             </connections>
                         </button>
-                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0at-Zf-OeO">
+                        <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0at-Zf-OeO">
                             <rect key="frame" x="286" y="0.0" width="92" height="50"/>
                             <color key="backgroundColor" red="0.28519701959999999" green="0.5652202368" blue="0.27250269059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <state key="normal" title="Date">
                                 <color key="titleColor" red="0.99963909390000005" green="1" blue="0.99975615740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>

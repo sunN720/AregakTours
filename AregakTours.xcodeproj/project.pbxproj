@@ -16,6 +16,7 @@
 		7661CC3E21850CE400D4CE67 /* PricesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7661CC3D21850CE400D4CE67 /* PricesViewModelTests.swift */; };
 		7661CC402185171B00D4CE67 /* TourCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7661CC3F2185171B00D4CE67 /* TourCellViewModelTests.swift */; };
 		7661CC422185324200D4CE67 /* ToursPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7661CC412185324200D4CE67 /* ToursPresenterTests.swift */; };
+		7661CC442185453100D4CE67 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7661CC432185453100D4CE67 /* UIButtonExtension.swift */; };
 		E350450A216D59AC00273E10 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3504509216D59AC00273E10 /* BookViewModel.swift */; };
 		E35193B120AFCEDB006E1BD7 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35193B020AFCEDB006E1BD7 /* BookView.swift */; };
 		E35193B320AFCFC5006E1BD7 /* BookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E35193B220AFCFC5006E1BD7 /* BookView.xib */; };
@@ -86,6 +87,7 @@
 		7661CC3D21850CE400D4CE67 /* PricesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesViewModelTests.swift; sourceTree = "<group>"; };
 		7661CC3F2185171B00D4CE67 /* TourCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCellViewModelTests.swift; sourceTree = "<group>"; };
 		7661CC412185324200D4CE67 /* ToursPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursPresenterTests.swift; sourceTree = "<group>"; };
+		7661CC432185453100D4CE67 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		E3504509216D59AC00273E10 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		E35193B020AFCEDB006E1BD7 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		E35193B220AFCFC5006E1BD7 /* BookView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookView.xib; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			children = (
 				E3F67F342051E0D700A693E8 /* ViewFromNibExtension.swift */,
 				E3DE3CA121751C2D007A0DCB /* ArrayExtension.swift */,
+				7661CC432185453100D4CE67 /* UIButtonExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 			files = (
 				E398FDB9204B219100CB95D3 /* ToursInteractor.swift in Sources */,
 				E3DE3CA221751C2D007A0DCB /* ArrayExtension.swift in Sources */,
+				7661CC442185453100D4CE67 /* UIButtonExtension.swift in Sources */,
 				E398FDB8204B219100CB95D3 /* NetworkAdaptors.swift in Sources */,
 				E35501DA2027C622009B175D /* ToursViewController.swift in Sources */,
 				7661CC3321812EB100D4CE67 /* TourViewModel.swift in Sources */,
