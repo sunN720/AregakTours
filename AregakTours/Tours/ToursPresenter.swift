@@ -26,6 +26,20 @@ class ToursPresenter {
     fetchTours()
   }
   
+  private(set) var toursTotoal: Double = 0
+  
+  func calculateTotalPrice(_ price: Price) {
+    switch price.state {
+    case .selected:
+      toursTotoal += price.value
+    case .notSelected:
+      toursTotoal -= price.value
+    }
+    
+    updateBookView(value: toursTotoal)
+    
+  }
+  
   func updateBookView(value: Double) {
     if value > 0 {
       let bookViewModel = BookViewModel()
@@ -58,15 +72,11 @@ class ToursPresenter {
       
       let tourViewModels = tours.map { TourViewModel(tour: $0) }
       
-      for tourVM in tourViewModels {
-       let priceVM = PricesViewModel(transport: tourVM.transport,
-                                     guide: tourVM.guide,
-                                     meal: tourVM.meal)
-        let cellViewModel = TourCellViewModel(tourViewModel: tourVM,
-                                              priceViewModel: priceVM)
+      for vm in tourViewModels {
+        let cellViewModel = TourCellViewModel(tourViewModel: vm)
         cellViewModel.outputs.priceUpdate
-          .subscribe( onNext: { [weak self] value in
-            self?.updateBookView(value: value)
+          .subscribe( onNext: { [weak self] price in
+            self?.calculateTotalPrice(price)
             })
           .disposed(by: self.disposeBag)
         self.cellViewModels.append(cellViewModel)

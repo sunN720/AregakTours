@@ -1,5 +1,6 @@
 import UIKit
 import RxCocoa
+import RxSwift
 
 class PricesView: UIView {
   
@@ -7,6 +8,7 @@ class PricesView: UIView {
   private(set) var vm: PricesViewModeling = PricesViewModel(transport: .defaultPrice,
                                                             guide: .defaultPrice,
                                                             meal: .defaultPrice)
+  let disposeBag = DisposeBag()
 
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)

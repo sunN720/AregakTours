@@ -15,6 +15,7 @@
 		7661CC3A2182A59100D4CE67 /* PricesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7661CC392182A59100D4CE67 /* PricesViewModel.swift */; };
 		7661CC3E21850CE400D4CE67 /* PricesViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7661CC3D21850CE400D4CE67 /* PricesViewModelTests.swift */; };
 		7661CC402185171B00D4CE67 /* TourCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7661CC3F2185171B00D4CE67 /* TourCellViewModelTests.swift */; };
+		7661CC422185324200D4CE67 /* ToursPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7661CC412185324200D4CE67 /* ToursPresenterTests.swift */; };
 		E350450A216D59AC00273E10 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3504509216D59AC00273E10 /* BookViewModel.swift */; };
 		E35193B120AFCEDB006E1BD7 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35193B020AFCEDB006E1BD7 /* BookView.swift */; };
 		E35193B320AFCFC5006E1BD7 /* BookView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E35193B220AFCFC5006E1BD7 /* BookView.xib */; };
@@ -84,6 +85,7 @@
 		7661CC392182A59100D4CE67 /* PricesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesViewModel.swift; sourceTree = "<group>"; };
 		7661CC3D21850CE400D4CE67 /* PricesViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PricesViewModelTests.swift; sourceTree = "<group>"; };
 		7661CC3F2185171B00D4CE67 /* TourCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourCellViewModelTests.swift; sourceTree = "<group>"; };
+		7661CC412185324200D4CE67 /* ToursPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToursPresenterTests.swift; sourceTree = "<group>"; };
 		E3504509216D59AC00273E10 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		E35193B020AFCEDB006E1BD7 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		E35193B220AFCFC5006E1BD7 /* BookView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookView.xib; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				E35501D92027C622009B175D /* ToursViewController.swift */,
 				E3B0B98F20421DA500593790 /* ToursPresenter.swift */,
 				E3DE3CA321751DA8007A0DCB /* ToursViewModel.swift */,
+				7661CC412185324200D4CE67 /* ToursPresenterTests.swift */,
 			);
 			path = Tours;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7661CC402185171B00D4CE67 /* TourCellViewModelTests.swift in Sources */,
+				7661CC422185324200D4CE67 /* ToursPresenterTests.swift in Sources */,
 				E35501ED2027C622009B175D /* AregakToursTests.swift in Sources */,
 				7661CC3E21850CE400D4CE67 /* PricesViewModelTests.swift in Sources */,
 				7661CC2C217E88EA00D4CE67 /* BookViewModelTests.swift in Sources */,

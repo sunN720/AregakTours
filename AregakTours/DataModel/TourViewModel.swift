@@ -36,6 +36,10 @@ struct Price {
     self.state = state
   }
   
+  func boolFormState() -> Bool {
+    return state == .selected ? true : false
+  }
+  
   static func boolFromState(_ state: State) -> Bool {
     return state == .selected ? true : false
   }

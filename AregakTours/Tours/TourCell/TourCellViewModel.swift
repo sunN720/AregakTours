@@ -11,21 +11,16 @@ protocol TourCellViewModelOutputs {
   var name: String { get }
   var description: String? { get }
   var priceVM: PricesViewModel { get }
-  var priceUpdate: Observable<Double> { get }
-}
-
-protocol TourCellViewModelInputs {
+  var priceUpdate: Observable<Price> { get }
 }
 
 protocol TourCellViewModeling {
-  var inputs: TourCellViewModelInputs { get }
   var outputs: TourCellViewModelOutputs { get }
 }
 
 
-class TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCellViewModelOutputs {
-  
-  var inputs: TourCellViewModelInputs { return self }
+class TourCellViewModel: TourCellViewModeling, TourCellViewModelOutputs {
+
   var outputs: TourCellViewModelOutputs { return self }
   
   private let selectedInput = BehaviorSubject<State>(value: .regular)
@@ -33,8 +28,8 @@ class TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCell
     return selectedInput.asObservable()
   }
   
-  private let priceUpdateInput = BehaviorSubject<Double>(value: 0)
-  var priceUpdate: Observable<Double> {
+  private let priceUpdateInput = BehaviorSubject<Price>(value: .defaultPrice)
+  var priceUpdate: Observable<Price> {
     return priceUpdateInput.asObservable()
   }
   
@@ -45,31 +40,20 @@ class TourCellViewModel: TourCellViewModeling, TourCellViewModelInputs, TourCell
 
   private let disposeBag = DisposeBag()
   
-  init(tourViewModel: TourViewModel, priceViewModel: PricesViewModel) {
+  init(tourViewModel: TourViewModel) {
     self.id = tourViewModel.id
     self.name = tourViewModel.name.uppercased()
     self.description = tourViewModel.description
-    self.priceVM = priceViewModel
+    self.priceVM = PricesViewModel(transport: tourViewModel.transport,
+                                   guide: tourViewModel.guide,
+                                   meal: tourViewModel.meal)
     bindPriceVM()
-  }
-  
-  private(set) var tourTotoal: Double = 0
-  
-  func calculateTotalPrice(_ price: Price) {
-    switch price.state {
-    case .selected:
-      tourTotoal += price.value
-    case .notSelected:
-      tourTotoal -= price.value
-    }
-    
-    priceUpdateInput.onNext(tourTotoal)
   }
   
   func bindPriceVM() {
     priceVM.priceValueUpdated
-      .subscribe( onNext: { price in
-        self.calculateTotalPrice(price)
+      .subscribe( onNext: { [weak self] price in
+        self?.priceUpdateInput.onNext(price)
       })
       .disposed(by: disposeBag)
   }

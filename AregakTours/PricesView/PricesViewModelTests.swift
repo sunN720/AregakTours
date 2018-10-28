@@ -18,7 +18,7 @@ class PricesViewModelTests: XCTestCase {
     super.tearDown()
   }
   
-  func testClickedButton_transportState() {
+  func test_clickedButton_transportState() {
     sut.clickedButton(at: 0)
     XCTAssertEqual(sut.transport.state, .selected)
     XCTAssertEqual(sut.transport.value, 10)
@@ -28,7 +28,7 @@ class PricesViewModelTests: XCTestCase {
     XCTAssertEqual(sut.transport.value, 10)
   }
   
-  func testClickedButton_guideState() {
+  func test_clickedButton_guideState() {
     sut.clickedButton(at: 1)
     XCTAssertEqual(sut.guide.state, .selected)
     XCTAssertEqual(sut.guide.value, 20)
@@ -38,7 +38,7 @@ class PricesViewModelTests: XCTestCase {
     XCTAssertEqual(sut.guide.value, 20)
   }
   
-  func testClickedButton_mealState() {
+  func test_clickedButton_mealState() {
     sut.clickedButton(at: 2)
     XCTAssertEqual(sut.meal.state, .selected)
     XCTAssertEqual(sut.meal.value, 30)

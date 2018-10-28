@@ -23,41 +23,12 @@ class TourCellViewModelTests: XCTestCase {
     meal = tourVM.meal
     guide = tourVM.guide
     
-    sut = TourCellViewModel(tourViewModel: tourVM,
-                            priceViewModel: PricesViewModel(transport: transport,
-                                                            guide: guide,
-                                                            meal: meal))
+    sut = TourCellViewModel(tourViewModel: tourVM)
   }
   
   override func tearDown() {
     sut = nil
     super.tearDown()
-  }
-  
-  func testCalculateTotalPrice() {
-    transport = Price(value: transport.value, state: .selected)
-    sut.calculateTotalPrice(transport)
-    XCTAssertEqual(sut.tourTotoal, transport.value)
-    
-    meal = Price(value: meal.value, state: .selected)
-    sut.calculateTotalPrice(meal)
-    XCTAssertEqual(sut.tourTotoal, transport.value + meal.value)
-    
-    guide = Price(value: guide.value, state: .selected)
-    sut.calculateTotalPrice(guide)
-    XCTAssertEqual(sut.tourTotoal, transport.value + guide.value + meal.value)
-    
-    transport = Price(value: transport.value, state: .notSelected)
-    sut.calculateTotalPrice(transport)
-    XCTAssertEqual(sut.tourTotoal, guide.value + meal.value)
-    
-    guide = Price(value: guide.value, state: .notSelected)
-    sut.calculateTotalPrice(guide)
-    XCTAssertEqual(sut.tourTotoal, meal.value)
-    
-    meal = Price(value: meal.value, state: .notSelected)
-    sut.calculateTotalPrice(meal)
-    XCTAssertEqual(sut.tourTotoal, 0)
   }
   
 }
