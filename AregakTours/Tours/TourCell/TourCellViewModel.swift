@@ -1,7 +1,5 @@
 import RxSwift
 
-// SHOULD BE TourCellViewModel?
-
 protocol TourCellViewModelOutputs {
   var name: String { get }
   var description: String? { get }

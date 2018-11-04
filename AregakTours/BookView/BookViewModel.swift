@@ -10,7 +10,6 @@ protocol BookViewModelInputs {
   func handleBookClick()
 }
 
-
 protocol BookViewModeling {
   var outputs: BookViewModelOutputs { get }
   var inputs: BookViewModelInputs { get }

@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 
-class TourCell: UITableViewCell {
+final class TourCell: UITableViewCell {
   @IBOutlet weak var titleLable: UILabel!
   @IBOutlet weak var descriptionLabel: UILabel!
   @IBOutlet weak var containerView: UIView!

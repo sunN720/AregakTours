@@ -1,7 +1,7 @@
 import XCTest
 @testable import AregakTours
 
-class ToursPresenterTests: XCTestCase {
+class ToursViewModelTests: XCTestCase {
   
   let mockedTour1 = Tour(id: 0,
                         name: "Tour1",
@@ -18,13 +18,13 @@ class ToursPresenterTests: XCTestCase {
                         description: nil)
   var tourVM1: TourViewModel!
   var tourVM2: TourViewModel!
-  var sut: ToursPresenter!
+  var sut: ToursViewModel!
   
   override func setUp() {
     super.setUp()
     tourVM1 = TourViewModel(tour: mockedTour1)
     tourVM2 = TourViewModel(tour: mockedTour2)
-    sut = ToursPresenter(toursService: ToursInteractor(service: NetworkService())) // TODO mocke ToursInteractor and NetworkService and use in tests
+    sut = ToursViewModel(toursProvider: ToursInteractor(service: NetworkService())) // TODO mocke ToursInteractor and NetworkService and use in tests
   }
   
   override func tearDown() {

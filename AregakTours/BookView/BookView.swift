@@ -1,7 +1,7 @@
 import RxSwift
 import UIKit
 
-class BookView: UIView {
+final class BookView: UIView {
   
   @IBOutlet weak var totalLabel: UILabel!
   @IBOutlet weak var bookButton: UIButton!

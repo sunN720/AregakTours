@@ -2,7 +2,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class PricesView: UIView {
+final class PricesView: UIView {
   
   @IBOutlet var priceButtons: [UIButton]!
   private(set) var vm: PricesViewModeling?

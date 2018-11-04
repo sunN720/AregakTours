@@ -1,10 +1,10 @@
 import UIKit
+import RxSwift
 
-class ToursViewController: UIViewController {
+final class ToursViewController: UIViewController {
   
-  @IBOutlet weak var emptyView: UIView?
-  @IBOutlet weak var tableView: UITableView?
-  @IBOutlet weak var activityIndicator: UIActivityIndicatorView?
+  @IBOutlet weak var emptyView: UIView!
+  @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var totalView: BookView!
   
   @IBOutlet weak var totalViewBottomConstraint: NSLayoutConstraint!
@@ -12,17 +12,47 @@ class ToursViewController: UIViewController {
   
   let bookViewAnimationDuration = 0.5
   
-  fileprivate let toursPresenter = ToursPresenter(toursService: ToursInteractor(service: NetworkService()))
-  fileprivate var toursToDisplay = [TourCellViewModel]()
+  // TODO inject viewModel
+  let vm: ToursViewModeling = ToursViewModel(toursProvider: ToursInteractor(service: NetworkService()))
+  let disposeBag = DisposeBag()
+  private(set) var toursToDisplay = [TourCellViewModel]()
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    activityIndicator?.hidesWhenStopped = true
     tableView?.register(UINib(nibName: "TourCell", bundle: nil), forCellReuseIdentifier: "TourCell")
-    toursPresenter.toursView = self
-    toursPresenter.notifyViewDidLoad()
-    hideTotalViewWithAnimation(false)
+    bindViewModel()
+    vm.inputs.notifyViewDidLoad()
+  }
+  
+  func bindViewModel() {
+    vm.outputs.tours
+      .observeOn(MainScheduler.instance)
+      .subscribe(
+        onNext: { [weak self] tours in
+          //TODO hanle empty state
+          self?.toursToDisplay = tours
+          self?.tableView?.reloadData()
+        },
+        onError: { error in
+          //TODO hanle error state
+          print(error.localizedDescription)
+        }
+      )
+      .disposed(by: disposeBag)
+    
+    vm.outputs.displayBookView
+      .observeOn(MainScheduler.instance)
+      .subscribe(
+        onNext: { [weak self] bookVM in
+          guard let vm = bookVM else {
+            self?.hideTotalViewWithAnimation(true)
+            return
+          }
+          self?.showTotalView(vm, animation: true)
+        }
+      )
+      .disposed(by: disposeBag)
   }
   
   fileprivate func hideTotalViewWithAnimation(_ animation: Bool) {
@@ -43,12 +73,14 @@ class ToursViewController: UIViewController {
         self.totalView?.alpha = 1.0
         self.totalViewBottomConstraint?.constant = 0.0
         }, completion: { finished in
-					self.totalView?.setup(with: viewModel)
-			})
+          self.totalView?.setup(with: viewModel)
+        }
+      )
     } else {
       totalView?.alpha = 1.0
     }
   }
+  
 }
 
 extension ToursViewController: UITableViewDataSource {
@@ -58,8 +90,8 @@ extension ToursViewController: UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "TourCell", for: indexPath) as! TourCell
-    let tourViewModel = toursToDisplay[indexPath.row]
-    cell.setupCell(viewModel: tourViewModel)
+    let cellViewModel = toursToDisplay[indexPath.row]
+    cell.setupCell(viewModel: cellViewModel)
     return cell
   }
 }
@@ -71,38 +103,7 @@ extension ToursViewController: UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 92.0
-  }
-}
-
-
-
-extension ToursViewController: ToursView {
-  
-  func startLoading() {
-    activityIndicator?.startAnimating()
-  }
-  
-  func finishLoading() {
-    activityIndicator?.stopAnimating()
-  }
-  
-  func setTours(_ tours: [TourCellViewModel]) {
-    toursToDisplay = tours
-    tableView?.reloadData()
-  }
-  
-  func updateViewFor(emptyState: Bool) {
-    tableView?.isHidden = emptyState
-    emptyView?.isHidden = !emptyState
-  }
-  
-  func displayBookView(_ viewModel: BookViewModeling) {
-    showTotalView(viewModel, animation: true)
-  }
-  
-  func hideBookView() {
-    hideTotalViewWithAnimation(true)
+    return 100
   }
 }
 

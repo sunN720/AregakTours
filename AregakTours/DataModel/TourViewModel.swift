@@ -1,4 +1,5 @@
 
+//TODO add tests for this mapping
 struct TourViewModel {
   
   let id: Int
@@ -18,12 +19,18 @@ struct TourViewModel {
     self.description = tour.description
     self.date = ""
   }
-  
+
   var tourTotalPrice: Double {
     let prices = [transport, guide, meal]
     return prices.filter{ $0.state != Price.State.notSelected }.reduce(0) { $0 + $1.value }
   }
   
+}
+
+extension TourViewModel: Equatable {
+  static func == (lhd: TourViewModel, rhd: TourViewModel) -> Bool {
+    return lhd.id == rhd.id
+  }
 }
 
 struct Price {
@@ -43,11 +50,4 @@ struct Price {
   
   static let defaultPrice = Price(value: 0.00, state: .notSelected)
   
-}
-
-
-extension TourViewModel: Equatable {
-  static func == (l: TourViewModel, r: TourViewModel) -> Bool {
-    return l.id == r.id
-  }
 }
